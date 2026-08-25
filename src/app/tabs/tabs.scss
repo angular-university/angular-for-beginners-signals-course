@@ -1,0 +1,62 @@
+:host {
+  display: block;
+}
+
+.tab-nav {
+  background: #E3E1E7;
+  padding: .69rem .88rem 0;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+
+  .tab-link {
+    flex: 1;
+    display: inline-flex;
+    padding: 1.31rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    color: #514E58;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.188rem;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    border: none;
+    z-index: 1;
+    background-color: transparent;
+
+    &:hover {
+      color: #312e52;
+    }
+
+    &.active {
+      color: #3B3059;
+
+      &::after {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #FFFFFF;
+        border-radius: 0.5rem 0.5rem 0 0;
+        border-top: 3px solid #3B3059;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .tab-nav {
+    justify-content: flex-start;
+    
+    .tab-link {
+      flex: 0 1 auto;
+    }
+  }
+}

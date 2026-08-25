@@ -1,0 +1,74 @@
+<div class="modal-backdrop">
+  <div class="modal-content course-form">
+      <header class="modal-header">
+          <div class="modal-title">{{ courseModel().description }}</div>
+          <div>
+              <button class="close-button" (click)="close()">
+                  <img src="/icons/close.svg" alt="Close Icon">
+              </button>
+          </div>
+      </header>
+
+      <section class="modal-body">
+          <div class="form-field description">
+              <input type="text" placeholder="Course Description" [formField]="courseForm.description">
+              @if (courseForm.description().touched() && courseForm.description().invalid()) {
+              <ul class="error-list">
+                  @for (error of courseForm.description().errors(); track error) {
+                  <li>{{ error.message }}</li>
+                  }
+              </ul>
+              }
+          </div>
+
+          <div class="form-field category">
+              <select [formField]="courseForm.category">
+                  <option value="BEGINNER">Beginner</option>
+                  <option value="INTERMEDIATE">Intermediate</option>
+                  <option value="ADVANCED">Advanced</option>
+              </select>
+              @if (courseForm.category().touched() && courseForm.category().invalid()) {
+              <ul class="error-list">
+                  @for (error of courseForm.category().errors(); track error) {
+                  <li>{{ error.message }}</li>
+                  }
+              </ul>
+              }
+          </div>
+
+          <div class="form-field released-at">
+              <input type="date" [formField]="courseForm.releasedAt">
+              @if (courseForm.releasedAt().touched() && courseForm.releasedAt().invalid()) {
+              <ul class="error-list">
+                  @for (error of courseForm.releasedAt().errors(); track error) {
+                  <li>{{ error.message }}</li>
+                  }
+              </ul>
+              }
+          </div>
+
+          <div class="form-field long-description">
+              <textarea placeholder="Long Description" [formField]="courseForm.longDescription"></textarea>
+              @if (courseForm.longDescription().touched() && courseForm.longDescription().invalid()) {
+              <ul class="error-list">
+                  @for (error of courseForm.longDescription().errors(); track error) {
+                  <li>{{ error.message }}</li>
+                  }
+              </ul>
+              }
+          </div>
+      </section>
+
+      <footer class="modal-actions">
+          <button class="btn-secondary" (click)="close()" [disabled]="courseForm().submitting()">
+              <img src="/icons/close.svg" alt="Close Icon">
+              Close
+          </button>
+
+          <button class="btn-primary" (click)="save()" [disabled]="!courseForm().valid() || courseForm().submitting()">
+              <img src="/icons/save.svg" alt="Save Icon">
+              {{ courseForm().submitting() ? 'Saving...' : 'Save' }}
+          </button>
+      </footer>
+  </div>
+</div>

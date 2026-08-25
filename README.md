@@ -1,15 +1,15 @@
+##  Angular For Beginners with Signals Course
 
-##  Angular AI In Depth (with Cursor and Claude Code) Course
-
-This repository contains the code of the [Angular AI In Depth (with Cursor and Claude Code)](https://angular-university.io/course/angular-ai-in-depth) course.
+This repository contains the code of the [Angular For Beginners with Signals](https://angular-university.io/course/getting-started-with-angular2) course.
 
 This course repository is updated to Angular v22.
 
-![Angular AI In Depth (with Cursor and Claude Code)](https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-ai-in-depth.jpg)
+![Angular For Beginners with Signals](https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png)
 
 # Installation pre-requisites
 
 Please install Node 24 Long Term Support Edition (LTE).
+
 # Installing the Angular CLI
 
 With the following command the angular-cli will be installed globally in your machine:
@@ -20,11 +20,11 @@ With the following command the angular-cli will be installed globally in your ma
 
 We can install the master branch using the following commands:
 
-    git clone https://github.com/angular-university/angular-ai-in-depth.git
+    git clone https://github.com/angular-university/angular-for-beginners-signals-course.git
 
 After cloning, it's recommended that you install using npm ci. This way you will get the exact dependencies of package-lock.json:
 
-    cd angular-ai-in-depth
+    cd angular-for-beginners-signals-course
     npm ci
 
     npm install 
@@ -37,7 +37,7 @@ We can start the sample application backend with the following command:
 
     npm run server
 
-This is a small Node REST API server.
+This is a small Node REST API server, that serves the courses and lessons data.
 
 # To run the Development UI Server
 

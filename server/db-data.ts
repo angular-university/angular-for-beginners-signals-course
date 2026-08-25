@@ -1,123 +1,660 @@
-import { Conversation } from './models/conversation.model.js';
-import { ChatMessage } from './models/chat-message.model.js';
+import { Course } from './models/course.model.js';
+import { Lesson } from './models/lesson.model.js';
 
-export const DB_CONVERSATIONS: Conversation[] = [];
+export const COURSES: Record<number, Course> = {
+    1: {
+    id: 1,
+    titles: {
+      description: 'Angular for Beginners with Signals',
+      longDescription: 'Learn Angular from scratch the modern way, with components, services, routing and forms built on top of signals.'
+    },
+    iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-signals-course.jpg',
+    lessonsCount: 10,
+    category: 'BEGINNER',
+    'seqNo': 0,
+    url: 'angular-for-beginners-signals-course'
+  },
 
-/*
-const MOCK_CONVERSATIONS: Conversation[] = [
-  {
-    id: '1',
-    promptId: 'angular-assistant',
-    title: 'What are the new features in Angular 19?',
-    messages: [
-      { id: 'm1-1', role: 'user', content: 'What are the new features and improvements in Angular 19?' },
-      {
-        id: 'm1-2',
-        role: 'assistant',
-        content:
-          'Angular 19 introduces several exciting improvements including enhanced standalone component support, improved SSR hydration, and significant bundle size optimisations.',
-      },
-      { id: 'm1-3', role: 'user', content: 'What about the new signals APIs in Angular 19?' },
-      {
-        id: 'm1-4',
-        role: 'assistant',
-        content:
-          'Angular 19 expands the signals ecosystem with linkedSignal, resource(), and improvements to toSignal() — making fully reactive, zoneless apps possible without RxJS.',
-      },
-    ],
+  2: {
+    id: 2,
+    titles: {
+      description: 'Angular Core Deep Dive',
+      longDescription: 'A detailed walk-through of the most important part of Angular - the Core and Common modules'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png',
+    lessonsCount: 10,
+    category: 'BEGINNER',
+    'seqNo': 1,
+    url: 'angular-core-course'
   },
-  {
-    id: '2',
-    promptId: 'angular-assistant',
-    title: 'How to create a component in Angular',
-    messages: [
-      { id: 'm2-1', role: 'user', content: 'How do I create a component in Angular?' },
-      {
-        id: 'm2-2',
-        role: 'assistant',
-        content:
-          'Use the CLI: ng generate component my-component. In modern Angular, generated components are standalone by default.',
-      },
-    ],
-  },
-  {
-    id: '3',
-    promptId: 'angular-assistant',
-    title: 'Angular routing how it works',
-    messages: [
-      { id: 'm3-1', role: 'user', content: 'Can you explain how Angular routing works?' },
-      {
-        id: 'm3-2',
-        role: 'assistant',
-        content:
-          "Angular's router maps URL paths to components via a Routes array. Use provideRouter() in app.config.ts and place a <router-outlet> where routed components should render.",
-      },
-    ],
-  },
-  {
-    id: '4',
-    promptId: 'angular-assistant',
-    title: 'What is a service in Angular',
-    messages: [
-      {
-        id: 'm4-1',
-        role: 'user',
-        content: 'What is a service in Angular and when should I use one?',
-      },
-      {
-        id: 'm4-2',
-        role: 'assistant',
-        content:
-          'A service is an @Injectable class for shared logic, state, or data access. Use services when multiple components need the same data, or to separate business logic from the UI.',
-      },
-    ],
-  },
-  {
-    id: '5',
-    promptId: 'angular-assistant',
-    title: 'Angular signals explained',
-    messages: [
-      {
-        id: 'm5-1',
-        role: 'user',
-        content: 'Can you explain Angular signals and how they differ from RxJS?',
-      },
-      {
-        id: 'm5-2',
-        role: 'assistant',
-        content:
-          'Signals are synchronous reactive primitives — you read the current value by calling the signal as a function. Unlike RxJS, there are no subscriptions, no operators, and no memory leak risk.',
-      },
-    ],
-  },
-];
-*/
 
-export function createConversation(promptId: string, userMessage: string, assistantReply: string): Conversation {
-  const title = userMessage.length > 60 ? userMessage.slice(0, 60) + '...' : userMessage;
-  const conversationId = crypto.randomUUID();
+  3: {
+    id: 3,
+    titles: {
+      description: 'RxJs In Practice Course',
+      longDescription: 'Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png',
+    courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
+    category: 'BEGINNER',
+    lessonsCount: 10,
+    'seqNo': 2,
+    url: 'rxjs-course'
+  },
 
-  const messages: ChatMessage[] = [
-    { id: crypto.randomUUID(), role: 'user', content: userMessage },
-    { id: crypto.randomUUID(), role: 'assistant', content: assistantReply },
-  ];
+  4: {
+    id: 4,
+    titles: {
+      description: 'NgRx In Depth',
+      longDescription: 'Learn the modern Ngrx Ecosystem, including Store, Effects, Router Store, Ngrx Entity, Dev Tools and Schematics.'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-ngrx-course.png',
+    courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
+    category: 'BEGINNER',
+    lessonsCount: 10,
+    'seqNo': 3,
+    url: 'ngrx-course'
+  },
 
-  const conversation: Conversation = { id: conversationId, title, promptId, messages };
-  DB_CONVERSATIONS.push(conversation);
-  return conversation;
+
+
+  5: {
+    id: 5,
+    titles: {
+      description: 'Angular for Beginners',
+      longDescription: 'Establish a solid layer of fundamentals, learn what\'s under the hood of Angular'
+    },
+    iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png',
+    courseListIcon: 'https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png',
+    category: 'BEGINNER',
+    lessonsCount: 10,
+    'seqNo': 4,
+    url: 'angular-for-beginners'
+  },
+
+  6: {
+    id: 6,
+    titles: {
+      description: 'Angular Security Course - Web Security Fundamentals',
+      longDescription: 'Learn Web Security Fundamentals and apply them to defend an Angular / Node Application from multiple types of attacks.'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png',
+    courseListIcon: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/lock-v2.png',
+    category: 'ADVANCED',
+    lessonsCount: 11,
+    'seqNo': 5,
+    url: 'angular-security-course'
+  },
+
+  7: {
+    id: 7,
+    titles: {
+      description: 'Angular PWA - Progressive Web Apps Course',
+      longDescription: 'Learn Angular Progressive Web Applications, build the future of the Web Today.'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-pwa-course.png',
+    courseListIcon: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/alien.png',
+    category: 'ADVANCED',
+    lessonsCount: 8,
+    'seqNo': 6,
+    url: 'angular-pwa-course'
+  },
+
+  8: {
+    id: 8,
+    titles: {
+      description: 'Angular Advanced Library Laboratory: Build Your Own Library',
+      longDescription: 'Learn Advanced Angular functionality typically used in Library Development. Advanced Components, Directives, Testing, Npm'
+    },
+    iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/advanced_angular-small-v3.png',
+    courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular-advanced-lesson-icon.png',
+    lessonsCount: 0,
+    category: 'ADVANCED',
+    'seqNo': 7,
+    url: 'angular-advanced-course'
+  },
+
+  9: {
+    id: 9,
+    titles: {
+      description: 'The Complete Typescript Course',
+      longDescription: 'Complete Guide to Typescript From Scratch: Learn the language in-depth and use it to build a Node REST API.'
+    },
+    iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png',
+    courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-lesson.png',
+    lessonsCount: 0,
+    category: 'BEGINNER',
+    'seqNo': 8,
+    url: 'typescript-course'
+  },
+
+  10: {
+    id: 10,
+    titles: {
+      description: 'Rxjs and Reactive Patterns Angular Architecture Course',
+      longDescription: 'Learn the core RxJs Observable Pattern as well and many other Design Patterns for building Reactive Angular Applications.'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-academy/blog/images/rxjs-reactive-patterns-small.png',
+    courseListIcon: 'https://angular-academy.s3.amazonaws.com/course-logos/observables_rxjs.png',
+    lessonsCount: 0,
+    category: 'BEGINNER',
+    'seqNo': 9,
+    url: 'rxjs-patterns-course'
+  },
+
+  11: {
+    id: 11,
+    titles: {
+      description: 'Angular Material Course',
+      longDescription: 'Build Applications with the official Angular Widget Library'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/material_design.png',
+    lessonsCount: 0,
+    category: 'BEGINNER',
+    'seqNo': 10,
+    url: 'angular-material-course'
+  },
+
+  12: {
+    id: 12,
+    titles: {
+      description: 'Angular Testing Course',
+      longDescription: 'In-depth guide to Unit Testing and E2E Testing of Angular Applications'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-testing-small.png',
+    category: 'BEGINNER',
+    'seqNo': 11,
+    url: 'angular-testing-course',
+    lessonsCount: 10,
+  },
+  13: {
+    id: 13,
+    titles: {
+      description: 'Serverless Angular with Firebase Course',
+      longDescription: 'Serveless Angular with Firestore, Firebase Storage & Hosting, Firebase Cloud Functions & AngularFire'
+    },
+    iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/serverless-angular-small.png',
+    lessonsCount: 10,
+    category: 'BEGINNER',
+    'seqNo': 12,
+    url: 'serverless-angular'
+  },
+
+};
+
+
+export const LESSONS: Record<number, Lesson> = {
+
+  1: {
+    id: 1,
+    'description': 'Angular Tutorial For Beginners - Build Your First App - Hello World Step By Step',
+    'duration': '4:17',
+    'seqNo': 1,
+    courseId: 5
+  },
+  2: {
+    id: 2,
+    'description': 'Building Your First  Component - Component Composition',
+    'duration': '2:07',
+    'seqNo': 2,
+    courseId: 5
+  },
+  3: {
+    id: 3,
+    'description': 'Component @Input - How To Pass Input Data To an  Component',
+    'duration': '2:33',
+    'seqNo': 3,
+    courseId: 5
+  },
+  4: {
+    id: 4,
+    'description': ' Component Events - Using @Output to create custom events',
+    'duration': '4:44',
+    'seqNo': 4,
+    courseId: 5
+  },
+  5: {
+    id: 5,
+    'description': ' Component Templates - Inline Vs External',
+    'duration': '2:55',
+    'seqNo': 5,
+    courseId: 5
+  },
+  6: {
+    id: 6,
+    'description': 'Styling  Components - Learn About Component Style Isolation',
+    'duration': '3:27',
+    'seqNo': 6,
+    courseId: 5
+  },
+  7: {
+    id: 7,
+    'description': ' Component Interaction - Extended Components Example',
+    'duration': '9:22',
+    'seqNo': 7,
+    courseId: 5
+  },
+  8: {
+    id: 8,
+    'description': ' Components Tutorial For Beginners - Components Exercise !',
+    'duration': '1:26',
+    'seqNo': 8,
+    courseId: 5
+  },
+  9: {
+    id: 9,
+    'description': ' Components Tutorial For Beginners - Components Exercise Solution Inside',
+    'duration': '2:08',
+    'seqNo': 9,
+    courseId: 5
+  },
+  10: {
+    id: 10,
+    'description': ' Directives - Inputs, Output Event Emitters and How To Export Template References',
+    'duration': '4:01',
+    'seqNo': 10,
+    courseId: 5
+  },
+
+
+  // Security Course
+  11: {
+    id: 11,
+    'description': 'Course Helicopter View',
+    'duration': '08:19',
+    'seqNo': 1,
+    courseId: 6
+  },
+
+  12: {
+    id: 12,
+    'description': 'Installing Git, Node, NPM and Choosing an IDE',
+    'duration': '04:17',
+    'seqNo': 2,
+    courseId: 6
+  },
+
+  13: {
+    id: 13,
+    'description': 'Installing The Lessons Code - Learn Why Its Essential To Use NPM 5',
+    'duration': '06:05',
+    'seqNo': 3,
+    courseId: 6
+  },
+
+  14: {
+    id: 14,
+    'description': 'How To Run Node In TypeScript With Hot Reloading',
+    'duration': '03:57',
+    'seqNo': 4,
+    courseId: 6
+  },
+
+  15: {
+    id: 15,
+    'description': 'Guided Tour Of The Sample Application',
+    'duration': '06:00',
+    'seqNo': 5,
+    courseId: 6
+  },
+  16: {
+    id: 16,
+    'description': 'Client Side Authentication Service - API Design',
+    'duration': '04:53',
+    'seqNo': 6,
+    courseId: 6
+  },
+  17: {
+    id: 17,
+    'description': 'Client Authentication Service - Design and Implementation',
+    'duration': '09:14',
+    'seqNo': 7,
+    courseId: 6
+  },
+  18: {
+    id: 18,
+    'description': 'The New Angular HTTP Client - Doing a POST Call To The Server',
+    'duration': '06:08',
+    'seqNo': 8,
+    courseId: 6
+  },
+  19: {
+    id: 19,
+    'description': 'User Sign Up Server-Side Implementation in Express',
+    'duration': '08:50',
+    'seqNo': 9,
+    courseId: 6
+  },
+  20: {
+    id: 20,
+    'description': 'Introduction To Cryptographic Hashes - A Running Demo',
+    'duration': '05:46',
+    'seqNo': 10,
+    courseId: 6
+  },
+  21: {
+    id: 21,
+    'description': 'Some Interesting Properties Of Hashing Functions - Validating Passwords',
+    'duration': '06:31',
+    'seqNo': 11,
+    courseId: 6
+  },
+
+
+  // PWA course
+
+  22: {
+    id: 22,
+    'description': 'Course Kick-Off - Install Node, NPM, IDE And Service Workers Section Code',
+    'duration': '07:19',
+    'seqNo': 1,
+    courseId: 7
+  },
+  23: {
+    id: 23,
+    'description': 'Service Workers In a Nutshell - Service Worker Registration',
+    'duration': '6:59',
+    'seqNo': 2,
+    courseId: 7
+  },
+  24: {
+    id: 24,
+    'description': 'Service Workers Hello World - Lifecycle Part 1 and PWA Chrome Dev Tools',
+    'duration': '7:28',
+    'seqNo': 3,
+    courseId: 7
+  },
+  25: {
+    id: 25,
+    'description': 'Service Workers and Application Versioning - Install & Activate Lifecycle Phases',
+    'duration': '10:17',
+    'seqNo': 4,
+    courseId: 7
+  },
+
+  26: {
+    id: 26,
+    'description': 'Downloading The Offline Page - The Service Worker Installation Phase',
+    'duration': '09:50',
+    'seqNo': 5,
+    courseId: 7
+  },
+  27: {
+    id: 27,
+    'description': 'Introduction to the Cache Storage PWA API',
+    'duration': '04:44',
+    'seqNo': 6,
+    courseId: 7
+  },
+  28: {
+    id: 28,
+    'description': 'View Service Workers HTTP Interception Features In Action',
+    'duration': '06:07',
+    'seqNo': 7,
+    courseId: 7
+  },
+  29: {
+    id: 29,
+    'description': 'Service Workers Error Handling - Serving The Offline Page',
+    'duration': '5:38',
+    'seqNo': 8,
+    courseId: 7
+  },
+
+  // Serverless Angular with Firebase Course
+
+  30: {
+    id: 30,
+    description: 'Development Environment Setup',
+    'duration': '5:38',
+    'seqNo': 1,
+    courseId: 13
+  },
+
+  31: {
+    id: 31,
+    description: 'Introduction to the Firebase Ecosystem',
+    'duration': '5:12',
+    'seqNo': 2,
+    courseId: 13
+  },
+
+  32: {
+    id: 32,
+    description: 'Importing Data into Firestore',
+    'duration': '4:07',
+    'seqNo': 3,
+    courseId: 13
+  },
+
+  33: {
+    id: 33,
+    description: 'Firestore Documents in Detail',
+    'duration': '7:32',
+    'seqNo': 4,
+    courseId: 13
+  },
+
+  34: {
+    id: 34,
+    description: 'Firestore Collections in Detail',
+    'duration': '6:28',
+    'seqNo': 5,
+    courseId: 13
+  },
+
+  35: {
+    id: 35,
+    description: 'Firestore Unique Identifiers',
+    'duration': '4:38',
+    'seqNo': 6,
+    courseId: 13
+  },
+
+  36: {
+    id: 36,
+    description: 'Querying Firestore Collections',
+    'duration': '7:54',
+    'seqNo': 7,
+    courseId: 13
+  },
+
+  37: {
+    id: 37,
+    description: 'Firebase Security Rules In Detail',
+    'duration': '5:31',
+    'seqNo': 8,
+    courseId: 13
+  },
+
+  38: {
+    id: 38,
+    description: 'Firebase Cloud Functions In Detail',
+    'duration': '8:19',
+    'seqNo': 9,
+    courseId: 13
+  },
+
+  39: {
+    id: 39,
+    description: 'Firebase Storage In Detail',
+    'duration': '7:05',
+    'seqNo': 10,
+    courseId: 13
+  },
+
+
+  // Angular Testing Course
+
+  40: {
+    id: 40,
+    description: 'Angular Testing Course - Helicopter View',
+    'duration': '5:38',
+    'seqNo': 1,
+    courseId: 12
+  },
+
+  41: {
+    id: 41,
+    description: 'Setting Up the Development Environment',
+    'duration': '5:12',
+    'seqNo': 2,
+    courseId: 12
+  },
+
+  42: {
+    id: 42,
+    description: 'Introduction to Jasmine, Spies and specs',
+    'duration': '4:07',
+    'seqNo': 3,
+    courseId: 12
+  },
+
+  43: {
+    id: 43,
+    description: 'Introduction to Service Testing',
+    'duration': '7:32',
+    'seqNo': 4,
+    courseId: 12
+  },
+
+  44: {
+    id: 44,
+    description: 'Settting up the Angular TestBed',
+    'duration': '6:28',
+    'seqNo': 5,
+    courseId: 12
+  },
+
+  45: {
+    id: 45,
+    description: 'Mocking Angular HTTP requests',
+    'duration': '4:38',
+    'seqNo': 6,
+    courseId: 12
+  },
+
+  46: {
+    id: 46,
+    description: 'Simulating Failing HTTP Requests',
+    'duration': '7:54',
+    'seqNo': 7,
+    courseId: 12
+  },
+
+  47: {
+    id: 47,
+    description: 'Introduction to Angular Component Testing',
+    'duration': '5:31',
+    'seqNo': 8,
+    courseId: 12
+  },
+
+  48: {
+    id: 48,
+    description: 'Testing Angular Components without the DOM',
+    'duration': '8:19',
+    'seqNo': 9,
+    courseId: 12
+  },
+
+  49: {
+    id: 49,
+    description: 'Testing Angular Components with the DOM',
+    'duration': '7:05',
+    'seqNo': 10,
+    courseId: 12
+  },
+
+  // Angular Deep Dive Testing Course  
+  50: {
+    id: 50,
+    description: 'Introduction to Angular Signals',
+    'duration': '6:45',
+    'seqNo': 1,
+    courseId: 1
+  },
+
+  51: {
+    id: 51,
+    description: 'Creating and Updating a Signal',
+    'duration': '7:20',
+    'seqNo': 2,
+    courseId: 1
+  },
+
+  52: {
+    id: 52,
+    description: 'Derived State with Computed Signals',
+    'duration': '5:55',
+    'seqNo': 3,
+    courseId: 1
+  },
+
+  53: {
+    id: 53,
+    description: 'Reacting to Changes with Effects',
+    'duration': '6:50',
+    'seqNo': 4,
+    courseId: 1
+  },
+
+  54: {
+    id: 54,
+    description: 'Component Inputs and Outputs with Signals',
+    'duration': '7:15',
+    'seqNo': 5,
+    courseId: 1
+  },
+
+  55: {
+    id: 55,
+    description: 'Fetching Data with the Resource API',
+    'duration': '6:35',
+    'seqNo': 6,
+    courseId: 1
+  },
+
+  56: {
+    id: 56,
+    description: 'Building Forms with Signal Forms',
+    'duration': '8:00',
+    'seqNo': 7,
+    courseId: 1
+  },
+
+  57: {
+    id: 57,
+    description: 'Routing Between Pages',
+    'duration': '7:40',
+    'seqNo': 8,
+    courseId: 1
+  },
+
+  58: {
+    id: 58,
+    description: 'Sharing State with Signal-Based Services',
+    'duration': '6:55',
+    'seqNo': 9,
+    courseId: 1
+  },
+
+  59: {
+    id: 59,
+    description: 'Putting It All Together',
+    'duration': '7:25',
+    'seqNo': 10,
+    courseId: 1
+  }
+};
+
+
+
+
+export function findCourseById(courseId: number) {
+  return COURSES[courseId];
 }
 
-export function appendMessages(conversationId: string, userMessage: string, assistantReply: string): Conversation {
-  const conversation = DB_CONVERSATIONS.find(c => c.id === conversationId);
-
-  if (!conversation) {
-    throw new Error(`Conversation not found: ${conversationId}`);
-  }
-
-  conversation.messages.push(
-    { id: crypto.randomUUID(), role: 'user', content: userMessage },
-    { id: crypto.randomUUID(), role: 'assistant', content: assistantReply },
-  );
-
-  return conversation;
+export function findLessonsForCourse(courseId: number) {
+  return Object.values(LESSONS).filter(lesson => lesson.courseId == courseId);
 }

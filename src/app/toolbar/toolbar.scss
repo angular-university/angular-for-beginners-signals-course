@@ -1,0 +1,46 @@
+.tab-container {
+    background-color: #3B3059;
+    padding: 1rem 1.06rem 0.81rem;
+
+    .nav-links {
+        display: flex;
+        justify-content: space-between;
+
+        .nav-item {
+            flex: 1;
+            display: inline-flex;
+            padding: 0.75rem 1.25rem;
+            justify-content: center;
+            align-items: center;
+            gap: 0.625rem;
+            text-decoration: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+            font-family: Inter;
+            font-size: 0.875rem;
+            line-height: 1.063rem;
+            color: #FFFFFF;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.625rem;
+            border: 1px solid #3B3059;
+
+            &.active-link {
+                color: #FFFFFF;
+                background-color: #21173B;
+                border-color: #21173B;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .nav-links {
+            justify-content: flex-start;
+
+            .nav-item {
+                flex: 0 1 auto;
+            }
+        }
+    }
+}

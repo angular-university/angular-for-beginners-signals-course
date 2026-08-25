@@ -1,0 +1,81 @@
+<div class="course-detail">
+    <div class="navigation-header">
+        <button class="back-button" (click)="goBack()">
+            <img src="/icons/arrowLeft.svg" alt="Back Icon">
+
+            <span>Back</span>
+        </button>
+    </div>
+    @if (course(); as courseData) {
+    <div class="course-title">{{ courseData.titles.description }}</div>
+    <div class="course-thumbnail">
+        <img class="course-thumbnail" [src]="courseData.iconUrl" [alt]="courseData.titles.description">
+    </div>
+    }
+
+
+    <div class="table-container">
+        <div class="search-bar">
+            <input id="lesson-search" type="text" placeholder="Search lesson" #input (keyup)="onSearch(input.value)">
+        </div>
+
+        @if (lessonsResource.isLoading()) {
+        <div class="spinner-container">
+            <div class="loading-spinner"></div>
+        </div>
+        }
+        @if (lessonsResource.error()) {
+        <div class="error">Error loading data: {{ lessonsResource.error() }}</div>
+        }
+        <table class="lessons-table">
+            <thead>
+                <tr>
+                    <th class="sortable" (click)="toggleSort()">
+                        <div>
+                            #
+                        </div>
+                        <div class="sort-btn">
+                            @if (sortField() === 'seqNo') { {{ sortDirection() === 'asc' ? '↑' : '↓' }} }
+                        </div>
+                    </th>
+                    <th>Description</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (lesson of lessons(); track lesson.id) {
+                <tr appHighlight highlightColor="yellow">
+                    <td>{{ lesson.seqNo }}</td>
+                    <td class="description-cell">{{ lesson.description }}</td>
+                    <td class="duration-cell">{{ lesson.duration | durationFormat }}</td>
+                </tr>
+                } @empty {
+                <tr>
+                    <td colspan="3" class="no-data">No lessons found.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="paginator">
+            <div class="items-label">
+                <span>Items per page</span>
+                <select (change)="onPageSizeChange($event)">
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+
+            <div class="page-controls">
+                <button [disabled]="isFirstPage()" (click)="prevPage()">
+                    <img src="/icons/caretLeft.svg" alt="Prev">
+                </button>
+                <span class="action-divider"></span>
+                <button [disabled]="isLastPage()" (click)="nextPage()">
+                    <img src="/icons/caretRight.svg" alt="Next">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

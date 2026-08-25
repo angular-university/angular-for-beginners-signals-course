@@ -1,0 +1,28 @@
+<div class="container">
+<tabs
+    [tabs]="courseTabs"
+    [(activeTab)]="activeTab"
+    (tabChanged)="onTabChanged($event)" />
+
+  <main class="tab-content">
+    @if (activeTab() === 'beginner') {
+      @if (beginnerCourses().length > 0) {
+        <courses-card-list
+          (courseEdited)="reloadCourses()"
+          [courses]="beginnerCourses()"/>
+      } @else {
+        <p class="empty-msg">No beginner courses available.</p>
+      }
+    }
+
+    @if (activeTab() === 'advanced') {
+      @if (advancedCourses().length > 0) {
+        <courses-card-list
+          (courseEdited)="reloadCourses()"
+          [courses]="advancedCourses()"/>
+      } @else {
+        <p class="empty-msg">No advanced courses available.</p>
+      }
+    }
+  </main>
+</div>

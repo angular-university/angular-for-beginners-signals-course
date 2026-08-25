@@ -1,0 +1,39 @@
+<div class="courses-grid">
+  @for (course of courses(); track course.id) {
+  <div class="course-card">
+
+    <div class="card-image">
+      <img [src]="course.iconUrl" [alt]="course.titles.description">
+    </div>
+    <div class="card-main-content">
+
+      <div class="card-header">
+        <div class="card-title">{{ course.titles.description }}</div>
+      </div>
+
+      <div class="card-content">
+        <p>{{ course.titles.longDescription }}</p>
+      </div>
+    </div>
+
+    <div class="course-actions">
+      <a class="btn" [routerLink]="['/courses', course.id]">
+        <img src="/icons/view.svg" alt="View Icon">
+        View Course
+      </a>
+
+      <button class="btn edit-btn" (click)="editCourse(course)">
+        <img src="/icons/edit.svg" alt="Edit Icon">
+        Edit
+      </button>
+    </div>
+
+  </div>
+  } @empty {
+  <div class="no-courses">No courses found.</div>
+  }
+</div>
+
+@if (courseInEdition(); as course) {
+  <courses-dialog [course]="course" (closed)="onDialogClosed($event)" />
+}
