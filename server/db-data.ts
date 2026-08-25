@@ -1,23 +1,7 @@
 import { Conversation } from './models/conversation.model.js';
 import { ChatMessage } from './models/chat-message.model.js';
-import { User } from './models/user.model.js';
-
-export const DB_USERS: User[] = [
-  {
-    id: 'a1b2c3d4-e5f6-7890-abcd-ef1234567890',
-    email: 'test@angular-university.io',
-    // argon2id hash of 'angular' — m=19456, t=2, p=1 (OWASP recommended)
-    passwordHash: '$argon2id$v=19$m=19456,t=2,p=1$Upa9wDMIbwYGDuZ6Xiwz3w$jvcTPmGyCk9xLHO5TFSSp0KDqvbZaXQXrHnDhhrVtMY',
-  },
-];
 
 export const DB_CONVERSATIONS: Conversation[] = [];
-
-export function createUser(email: string, passwordHash: string): User {
-  const user: User = { id: crypto.randomUUID(), email, passwordHash };
-  DB_USERS.push(user);
-  return user;
-}
 
 /*
 const MOCK_CONVERSATIONS: Conversation[] = [
@@ -109,7 +93,7 @@ const MOCK_CONVERSATIONS: Conversation[] = [
 ];
 */
 
-export function createConversation(promptId: string, userId: string, userMessage: string, assistantReply: string): Conversation {
+export function createConversation(promptId: string, userMessage: string, assistantReply: string): Conversation {
   const title = userMessage.length > 60 ? userMessage.slice(0, 60) + '...' : userMessage;
   const conversationId = crypto.randomUUID();
 
@@ -118,7 +102,7 @@ export function createConversation(promptId: string, userId: string, userMessage
     { id: crypto.randomUUID(), role: 'assistant', content: assistantReply },
   ];
 
-  const conversation: Conversation = { id: conversationId, title, promptId, userId, messages };
+  const conversation: Conversation = { id: conversationId, title, promptId, messages };
   DB_CONVERSATIONS.push(conversation);
   return conversation;
 }

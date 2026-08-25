@@ -4,7 +4,7 @@ import { AiMessage } from './models/ai-message.model.js';
 const logger = pino({ name: 'ai-client' });
 
 const AI_API_URL = 'https://api.openai.com/v1/chat/completions';
-const AI_MODEL = process.env['AI_MODEL'] ?? 'gpt-4o-mini';
+const AI_MODEL = 'gpt-4o-mini';
 
 type AiApiResponse = {
   choices: { message: { content: string } }[];

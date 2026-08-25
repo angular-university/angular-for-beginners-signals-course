@@ -16,5 +16,4 @@ export class SideNav {
   readonly toggle = output<void>();
   readonly conversationSelected = output<string>();
   readonly newChat = output<void>();
-  readonly logout = output<void>();
 }

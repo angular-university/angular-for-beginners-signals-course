@@ -9,14 +9,11 @@
 
 - each Express route should be in a separate file under the /server/routes folder. Make the routes plain express functions, and link them to the url and the HTTP method on server.ts
 
-- make the backend secure according to the latest OWASP recommendations.
+- there is no authentication and no security middleware: this is a beginners course and security is not covered. Don't add auth, guards, tokens, or user accounts.
 
-- load environment variables from an environment file .env using the dotenv package
+- don't use dotenv or .env files. Configuration values are plain constants in the code; the only
+  exception is the OpenAI API key, read from the OPENAI_API_KEY environment variable set in the shell.
 
 - use the package pino for logging. Add appropriate logging to all code.
 
 - don't use the OpenAI SDK Node wrapper to interact with their API. Instead, build plain HTTP requests directly.
-
-- authentication is based on email and password only, hashed/salted passwords. 
-
-- create an initial mock user on db-data.ts, like email test@angular-university.io with password Angular123  
