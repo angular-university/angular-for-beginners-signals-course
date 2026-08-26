@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Toolbar } from './toolbar/toolbar';
+import { Courses } from './courses/courses';
 
 @Component({
   selector: 'root',

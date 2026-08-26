@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { CourseCategory } from '../model/course';
+import { TabData } from './tabs.model';
 
 @Component({
   selector: 'tabs',
