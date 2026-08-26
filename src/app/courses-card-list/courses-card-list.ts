@@ -19,7 +19,14 @@ export class CoursesCardList {
   // the title the user is typing in the dialog
   title = signal('');
 
+  readonly maxTitleLength = 70;
+
   canSave = computed(() => this.title().trim().length > 0);
+
+  // how full the title is, as a percentage of the maximum length
+  titleLengthPercent = computed(() =>
+    Math.min(100, (this.title().length / this.maxTitleLength) * 100)
+  );
 
   editCourse(course: Course) {
     this.title.set(course.description);

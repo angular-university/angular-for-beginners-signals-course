@@ -3,9 +3,17 @@
     <article class="course-card">
       <div class="card-image-link">
         <img class="card-image" [src]="course.iconUrl" [alt]="course.description" />
-        <span class="card-category" [class.advanced]="course.category === 'ADVANCED'">
-          {{ course.category === 'ADVANCED' ? 'Advanced' : 'Beginner' }}
-        </span>
+        @switch (course.category) {
+          @case ('BEGINNER') {
+            <span class="card-category beginner">Beginner</span>
+          }
+          @case ('ADVANCED') {
+            <span class="card-category advanced">Advanced</span>
+          }
+          @default {
+            <span class="card-category">{{ course.category }}</span>
+          }
+        }
       </div>
 
       <div class="card-body">
@@ -45,6 +53,13 @@
             [value]="title()"
             (input)="onTitleInput($event)"
           />
+
+          <div class="title-meter">
+            <div class="title-meter-track">
+              <div class="title-meter-fill" [style.width.%]="titleLengthPercent()"></div>
+            </div>
+            <span class="title-meter-count">{{ title().length }} / {{ maxTitleLength }}</span>
+          </div>
 
           @if (!canSave()) {
             <span class="field-error">The title cannot be empty</span>
