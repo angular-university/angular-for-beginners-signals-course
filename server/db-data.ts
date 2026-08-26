@@ -25,7 +25,7 @@ export const COURSES: Record<number, Course> = {
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-router-in-depth.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
-    seqNo: 4,
+    seqNo: 5,
     url: 'angular-router-course',
     price: 50
   },
@@ -37,7 +37,7 @@ export const COURSES: Record<number, Course> = {
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-forms-in-depth.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
-    seqNo: 1,
+    seqNo: 2,
     url: 'angular-forms-course',
     price: 50
   },
@@ -49,7 +49,7 @@ export const COURSES: Record<number, Course> = {
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-ai-in-depth.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
-    seqNo: 2,
+    seqNo: 3,
     url: 'angular-ai-course',
     price: 50
   },
@@ -61,7 +61,7 @@ export const COURSES: Record<number, Course> = {
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-testing-In-depth.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
-    seqNo: 3,
+    seqNo: 4,
     url: 'angular-testing-signals-course',
     price: 50
   },
@@ -76,7 +76,7 @@ export const COURSES: Record<number, Course> = {
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-in-depth-with-signals.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
-    seqNo: 5,
+    seqNo: 1,
     url: 'angular-in-depth-signals-course',
     price: 50
   },
