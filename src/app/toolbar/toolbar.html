@@ -1,30 +1,8 @@
 <header class="top-nav">
   <div class="nav-inner">
-
-    <a class="nav-brand" routerLink="/courses">
+    <div class="nav-brand">
       <ng-logo [size]="28" class="brand-icon" />
       <span class="brand-text">Angular For Beginners (Signals Edition)</span>
-    </a>
-
-    <ul class="nav-links">
-      <li>
-        <a
-          class="nav-link"
-          routerLink="/courses"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <span class="material-icons">grid_view</span>
-          Courses
-        </a>
-      </li>
-      <li>
-        <a class="nav-link" routerLink="/about" routerLinkActive="active">
-          <span class="material-icons">info</span>
-          About
-        </a>
-      </li>
-    </ul>
-
+    </div>
   </div>
 </header>

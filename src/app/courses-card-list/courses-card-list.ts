@@ -1,13 +1,12 @@
 import { Component, input, output, signal } from '@angular/core';
 import { Course } from '../model/course';
 import { CoursesDialog } from '../courses-dialog/courses-dialog';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'courses-card-list',
   templateUrl: './courses-card-list.html',
   styleUrl: './courses-card-list.scss',
-  imports: [RouterLink, CoursesDialog],
+  imports: [CoursesDialog],
 })
 export class CoursesCardList {
   courses = input.required<Course[]>();

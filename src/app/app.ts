@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Toolbar } from './toolbar/toolbar';
-import { UserMessages } from './shared/user-messages/user-messages';
+import { Courses } from './courses/courses';
 import { GlobalLoading } from './shared/loading-indicator/global-loading';
 
 @Component({
   selector: 'root',
-  imports: [RouterOutlet, Toolbar, UserMessages, GlobalLoading],
+  imports: [Toolbar, Courses, GlobalLoading],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
