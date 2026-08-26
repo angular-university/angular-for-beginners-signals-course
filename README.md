@@ -4,7 +4,7 @@ This repository contains the code of the [Angular For Beginners (Signals Edition
 
 This course repository is updated to Angular v22.
 
-![Angular For Beginners (Signals Edition)](https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-for-beginners.jpg)
+<img src="https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-for-beginners.jpg" width="400" alt="Angular For Beginners (Signals Edition)">
 
 # Installation pre-requisites
 
