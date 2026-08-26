@@ -1,10 +1,10 @@
-##  Angular For Beginners with Signals Course
+##  Angular For Beginners (Signals Edition)
 
-This repository contains the code of the [Angular For Beginners with Signals](https://angular-university.io/course/getting-started-with-angular2) course.
+This repository contains the code of the [Angular For Beginners (Signals Edition)](https://angular-university.io/course/angular-beginners-signals-course) course.
 
 This course repository is updated to Angular v22.
 
-![Angular For Beginners with Signals](https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png)
+![Angular For Beginners (Signals Edition)](https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-for-beginners.jpg)
 
 # Installation pre-requisites
 
@@ -62,11 +62,11 @@ It's also possible to download a ZIP file for a given branch,  using the branch 
 
 Here is a list of all the courses of the Angular University.
 
-## Angular For Beginners
+## Angular For Beginners (Signals Edition)
 
-[Angular For Beginners](https://angular-university.io/course/getting-started-with-angular2) — Establish a solid layer of fundamentals, learn what's under the hood of Angular.
+[Angular For Beginners (Signals Edition)](https://angular-university.io/course/angular-beginners-signals-course) — Learn Angular from scratch the modern way: components, inputs and outputs, template control flow, signals, and fetching data from a backend.
 
-<img src="https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png" width="400" alt="Angular For Beginners">
+<img src="https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-for-beginners.jpg" width="400" alt="Angular For Beginners (Signals Edition)">
 
 ## Angular Forms In Depth (Signals Edition)
 
@@ -197,6 +197,12 @@ Here is a list of all the courses of the Angular University.
 # Archived Courses
 
 These courses are archived and replaced with newer versions, but are still accessible to subscribers.
+
+## Angular For Beginners (Archived)
+
+[Angular For Beginners](https://angular-university.io/course/getting-started-with-angular2) — Establish a solid layer of fundamentals, learn what's under the hood of Angular.
+
+<img src="https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png" width="400" alt="Angular For Beginners">
 
 ## NgRx In Depth (Archived)
 
