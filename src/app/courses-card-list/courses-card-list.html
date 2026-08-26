@@ -1,36 +1,32 @@
 <div class="courses-grid">
   @for (course of courses(); track course.id) {
-  <div class="course-card">
-
-    <div class="card-image">
-      <img [src]="course.iconUrl" [alt]="course.titles.description">
-    </div>
-    <div class="card-main-content">
-
-      <div class="card-header">
-        <div class="card-title">{{ course.titles.description }}</div>
+    <article class="course-card">
+      <div class="card-image-link">
+        <img class="card-image" [src]="course.iconUrl" [alt]="course.description" />
+        <span class="card-category" [class.advanced]="course.category === 'ADVANCED'">
+          {{ course.category === 'ADVANCED' ? 'Advanced' : 'Beginner' }}
+        </span>
       </div>
 
-      <div class="card-content">
-        <p>{{ course.titles.longDescription }}</p>
+      <div class="card-body">
+        <h3 class="card-title">{{ course.description }}</h3>
+        <p class="card-description">{{ course.longDescription }}</p>
       </div>
-    </div>
 
-    <div class="course-actions">
-      <a class="btn" [routerLink]="['/courses', course.id]">
-        <img src="/icons/view.svg" alt="View Icon">
-        View Course
-      </a>
+      <div class="card-footer">
+        <a class="btn btn-primary btn-sm" [routerLink]="['/courses', course.id]">
+          <span class="material-icons">play_arrow</span>
+          View Course
+        </a>
 
-      <button class="btn edit-btn" (click)="editCourse(course)">
-        <img src="/icons/edit.svg" alt="Edit Icon">
-        Edit
-      </button>
-    </div>
-
-  </div>
+        <button class="btn btn-ghost btn-sm edit-btn" (click)="editCourse(course)">
+          <span class="material-icons">edit</span>
+          Edit
+        </button>
+      </div>
+    </article>
   } @empty {
-  <div class="no-courses">No courses found.</div>
+    <div class="no-courses">No courses found.</div>
   }
 </div>
 

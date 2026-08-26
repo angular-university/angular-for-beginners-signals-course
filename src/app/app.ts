@@ -8,6 +8,7 @@ import { GlobalLoading } from './shared/loading-indicator/global-loading';
   selector: 'root',
   imports: [RouterOutlet, Toolbar, UserMessages, GlobalLoading],
   templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
 export class App {
 

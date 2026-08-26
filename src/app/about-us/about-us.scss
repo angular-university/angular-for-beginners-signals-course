@@ -1,57 +1,48 @@
-.about-container {
-    padding: 2.38rem 0.62rem;
-    margin: 0 auto;
+.about-card {
+  max-width: 680px;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-    .about-us-header {
-        color: #3B3059;
-        font-family: Inter;
-        font-size: 1.625rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.1938rem;
-        margin-bottom: 1.12rem;
-        text-align: center;
-    }
+.course-hero {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
 
-    .about-us-sub-header {
-        color: #626069;
-        font-family: Inter;
-        font-size: 1.375rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.688rem;
-        margin-bottom: 1.56rem;
-        text-align: center;
-    }
+.about-body {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
 
-    .hero-image-wrapper {
-        margin-inline: auto;
-        width: 25rem;
-        height: 13.125rem;
-        margin-bottom: 1.56rem;
+.about-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
 
-        img {
-            max-inline-size: 100%;
-            block-size: auto;
-            width: 100%;
-            height: auto;
-            border-radius: 0.75rem;
+.about-subtitle {
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
 
-        }
-    }
+.about-description {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 8px 0 16px;
+}
 
-    .description {
-        color: #626069;
-        font-family: Inter;
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.375rem;
-        width: 25rem;
-        margin-inline: auto;
-        @media (min-width: 768px) {
-        font-size: 1rem;
-        line-height: 1.875rem;
-    }
-    }
+.about-body .material-icons {
+  font-size: 16px;
 }

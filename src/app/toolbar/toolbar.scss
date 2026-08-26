@@ -1,46 +1,81 @@
-.tab-container {
-    background-color: #3B3059;
-    padding: 1rem 1.06rem 0.81rem;
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: #0f0f0f;
+  border-bottom: 1px solid #1d1d1d;
+}
 
-    .nav-links {
-        display: flex;
-        justify-content: space-between;
+.nav-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
 
-        .nav-item {
-            flex: 1;
-            display: inline-flex;
-            padding: 0.75rem 1.25rem;
-            justify-content: center;
-            align-items: center;
-            gap: 0.625rem;
-            text-decoration: none;
-            background-color: transparent;
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: 500;
-            font-family: Inter;
-            font-size: 0.875rem;
-            line-height: 1.063rem;
-            color: #FFFFFF;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.625rem;
-            border: 1px solid #3B3059;
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex: 1;
+}
 
-            &.active-link {
-                color: #FFFFFF;
-                background-color: #21173B;
-                border-color: #21173B;
-            }
-        }
-    }
+.nav-brand:hover {
+  text-decoration: none;
+}
 
-    @media (min-width: 1024px) {
-        .nav-links {
-            justify-content: flex-start;
+.brand-icon {
+  flex-shrink: 0;
+}
 
-            .nav-item {
-                flex: 0 1 auto;
-            }
-        }
-    }
+.brand-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.2px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition), background var(--transition);
+}
+
+.nav-link .material-icons {
+  font-size: 18px;
+}
+
+.nav-link:hover {
+  background: #1a1a1a;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: #fff;
+  background: #6d3bf5;
+  box-shadow: 0 0 0 2px #a17cff, 0 0 12px rgba(109, 59, 245, 0.6);
+  font-weight: 700;
 }

@@ -1,4 +1,4 @@
-import { Component, signal, computed, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { CoursesCardList } from '../courses-card-list/courses-card-list';
 import { CoursesService } from '../services/courses.service';
 import { TabsComponent } from '../tabs/tabs';
@@ -9,7 +9,7 @@ import { CourseCategory } from '../model/course';
   selector: 'courses',
   imports: [CoursesCardList, TabsComponent],
   templateUrl: './courses.html',
-  styleUrls: ['./courses.scss']
+  styleUrl: './courses.scss',
 })
 export class Courses implements OnInit {
   private courseService = inject(CoursesService);
@@ -19,15 +19,19 @@ export class Courses implements OnInit {
 
   courseTabs: TabData[] = [
     { label: 'Beginner', value: 'beginner' },
-    { label: 'Advanced', value: 'advanced' }
+    { label: 'Advanced', value: 'advanced' },
   ];
 
   beginnerCourses = computed(() =>
-    this.allCourses().filter(c => c.category === 'BEGINNER')
+    this.sortedCourses().filter(course => course.category !== 'ADVANCED')
   );
 
   advancedCourses = computed(() =>
-    this.allCourses().filter(c => c.category === 'ADVANCED')
+    this.sortedCourses().filter(course => course.category === 'ADVANCED')
+  );
+
+  private sortedCourses = computed(() =>
+    [...this.allCourses()].sort((c1, c2) => c1.seqNo - c2.seqNo)
   );
 
   ngOnInit() {

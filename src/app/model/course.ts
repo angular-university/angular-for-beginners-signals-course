@@ -1,21 +1,19 @@
 export interface Course {
   id: number;
-  seqNo: number;
-  titles: {
-    description: string;
-    longDescription?: string;
-  };
+  url: string;
+  description: string;
+  longDescription: string;
   iconUrl: string;
-  courseListIcon?: string;
   category: string;
   lessonsCount: number;
+  seqNo: number;
+  price: number;
 }
 
 export interface CourseData {
   description: string;
-  category: string;
-  releasedAt: string;
   longDescription: string;
+  category: string;
 }
 
 export type CourseCategory = 'beginner' | 'advanced';

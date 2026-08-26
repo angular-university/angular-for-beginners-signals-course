@@ -19,17 +19,15 @@ export class CoursesDialog {
 
   // the form data, initialized from the course being edited
   courseModel = linkedSignal<CourseData>(() => ({
-    description: this.course().titles.description ?? '',
-    category: this.course().category ?? '',
-    releasedAt: new Date().toLocaleDateString('en-CA'),
-    longDescription: this.course().titles.longDescription ?? '',
+    description: this.course().description,
+    category: this.course().category,
+    longDescription: this.course().longDescription,
   }));
 
   courseForm = form(this.courseModel, schemaPath => {
     required(schemaPath.description, { message: 'Description is required' });
     required(schemaPath.category, { message: 'Category is required' });
-    required(schemaPath.releasedAt, { message: 'Release Date is required' });
-    required(schemaPath.longDescription, { message: 'Long Description is required' });
+    required(schemaPath.longDescription, { message: 'Long description is required' });
   });
 
   close() {
@@ -38,17 +36,7 @@ export class CoursesDialog {
 
   async save() {
     await submit(this.courseForm, async form => {
-      const value = form().value();
-
-      const changes: Partial<Course> = {
-        category: value.category,
-        titles: {
-          description: value.description,
-          longDescription: value.longDescription,
-        },
-      };
-
-      await this.coursesService.saveCourse(this.course().id, changes);
+      await this.coursesService.saveCourse(this.course().id, form().value());
 
       this.closed.emit(true);
     });

@@ -2,14 +2,12 @@ import { Component, computed, inject, OnInit, resource, signal } from '@angular/
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from '../model/course';
 import { CoursesService } from '../services/courses.service';
-import { HighlightDirective } from '../directives/highlight.directive';
-import { DurationFormatPipe } from '../pipes/duration-format.pipe';
 
 const SEARCH_DEBOUNCE_MS = 400;
 
 @Component({
   selector: 'course-page',
-  imports: [DurationFormatPipe, HighlightDirective],
+  imports: [],
   templateUrl: './course-page.html',
   styleUrl: './course-page.scss',
 })
