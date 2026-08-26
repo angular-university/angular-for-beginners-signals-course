@@ -16,42 +16,18 @@ export class Courses implements OnInit {
 
   activeTab = signal<CourseCategory>('beginner');
 
-  // false shows the newest courses first
-  sortAscending = signal(true);
-
   courseTabs: TabData[] = [
     { label: 'Beginner', value: 'beginner' },
     { label: 'Advanced', value: 'advanced' },
   ];
 
-  sortedCourses = computed(() => {
-    const courses = [...this.coursesService.allCourses()];
-
-    return courses.sort((c1, c2) =>
-      this.sortAscending() ? c1.seqNo - c2.seqNo : c2.seqNo - c1.seqNo
-    );
-  });
-
   beginnerCourses = computed(() =>
-    this.sortedCourses().filter(course => course.category !== 'ADVANCED')
+    this.coursesService.allCourses().filter(course => course.category !== 'ADVANCED')
   );
 
   advancedCourses = computed(() =>
-    this.sortedCourses().filter(course => course.category === 'ADVANCED')
+    this.coursesService.allCourses().filter(course => course.category === 'ADVANCED')
   );
-
-  totalCount = computed(() => this.coursesService.allCourses().length);
-
-  visibleCount = computed(() =>
-    this.activeTab() === 'beginner' ? this.beginnerCourses().length : this.advancedCourses().length
-  );
-
-  // what share of all the courses the current tab is showing
-  visiblePercent = computed(() => {
-    const total = this.totalCount();
-
-    return total === 0 ? 0 : (this.visibleCount() / total) * 100;
-  });
 
   ngOnInit() {
     this.reloadCourses();
@@ -63,9 +39,5 @@ export class Courses implements OnInit {
 
   onTabChanged(newTab: CourseCategory) {
     this.activeTab.set(newTab);
-  }
-
-  toggleSortOrder() {
-    this.sortAscending.update(ascending => !ascending);
   }
 }

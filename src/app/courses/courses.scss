@@ -5,14 +5,6 @@
   margin-bottom: 24px;
 }
 
-.sort-btn {
-  margin-left: auto;
-
-  .material-icons {
-    font-size: 18px;
-  }
-}
-
 .error-box {
   display: flex;
   align-items: center;
@@ -37,32 +29,4 @@
   display: flex;
   justify-content: center;
   padding: 40px 0;
-}
-
-.courses-count {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 0 24px;
-}
-
-.courses-count-track {
-  flex: 1;
-  max-width: 240px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.courses-count-fill {
-  height: 100%;
-  background: var(--gradient-brand);
-  border-radius: 2px;
-  transition: width var(--transition);
-}
-
-.courses-count-label {
-  font-size: 13px;
-  color: var(--color-text-muted);
 }

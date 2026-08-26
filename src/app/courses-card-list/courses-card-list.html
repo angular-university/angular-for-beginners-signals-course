@@ -1,6 +1,6 @@
 <div class="courses-grid">
   @for (course of courses(); track course.id) {
-    <article class="course-card">
+    <article class="course-card" [style.animation-delay.ms]="$index * 60">
       <div class="card-image-link">
         <img class="card-image" [src]="course.iconUrl" [alt]="course.description" />
         @switch (course.category) {
