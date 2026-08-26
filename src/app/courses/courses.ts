@@ -40,6 +40,19 @@ export class Courses implements OnInit {
     this.sortedCourses().filter(course => course.category === 'ADVANCED')
   );
 
+  totalCount = computed(() => this.coursesService.allCourses().length);
+
+  visibleCount = computed(() =>
+    this.activeTab() === 'beginner' ? this.beginnerCourses().length : this.advancedCourses().length
+  );
+
+  // what share of all the courses the current tab is showing
+  visiblePercent = computed(() => {
+    const total = this.totalCount();
+
+    return total === 0 ? 0 : (this.visibleCount() / total) * 100;
+  });
+
   ngOnInit() {
     this.reloadCourses();
   }

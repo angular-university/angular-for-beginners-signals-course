@@ -24,6 +24,16 @@
   } @else {
     <tabs [tabs]="courseTabs" [activeTab]="activeTab()" (tabChanged)="onTabChanged($event)" />
 
+    <div class="courses-count">
+      <div class="courses-count-track">
+        <div class="courses-count-fill" [style.width.%]="visiblePercent()"></div>
+      </div>
+
+      <span class="courses-count-label">
+        Showing {{ visibleCount() }} of {{ totalCount() }} courses
+      </span>
+    </div>
+
     @if (activeTab() === 'beginner') {
       <courses-card-list (courseEdited)="reloadCourses()" [courses]="beginnerCourses()" />
     } @else if (activeTab() === 'advanced') {
