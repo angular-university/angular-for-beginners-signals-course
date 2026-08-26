@@ -1,0 +1,32 @@
+<article class="course-card" [style.animation-delay.ms]="index() * 60">
+  <div class="card-image-link">
+    <img class="card-image" [src]="course().iconUrl" [alt]="course().description" />
+    @switch (course().category) {
+      @case ('BEGINNER') {
+        <span class="card-category beginner">Beginner</span>
+      }
+      @case ('ADVANCED') {
+        <span class="card-category advanced">Advanced</span>
+      }
+      @default {
+        <span class="card-category">{{ course().category }}</span>
+      }
+    }
+  </div>
+
+  <div class="card-body">
+    <div class="card-title-row">
+      <h3 class="card-title">
+        <span class="card-number">{{ index() + 1 }}.</span> {{ course().description }}
+      </h3>
+
+      <button class="btn-icon edit-btn" title="Edit title" (click)="editRequested.emit()">
+        <span class="material-icons">edit</span>
+      </button>
+    </div>
+
+    <p class="card-description">{{ course().longDescription }}</p>
+
+    <div class="card-price">{{ course().price | currency }}</div>
+  </div>
+</article>
