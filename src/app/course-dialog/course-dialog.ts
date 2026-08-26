@@ -22,7 +22,7 @@ export class CourseDialog implements OnInit {
   canSave = computed(() => this.title().trim().length > 0);
 
   ngOnInit() {
-    this.title.set(this.course().description);
+    this.title.set(this.course().title);
   }
 
   onTitleInput(event: Event) {
@@ -40,7 +40,7 @@ export class CourseDialog implements OnInit {
     this.saving.set(true);
 
     try {
-      await this.coursesService.saveCourse(this.course().id, { description: this.title().trim() });
+      await this.coursesService.saveCourse(this.course().id, { title: this.title().trim() });
     } catch {
       this.saveError.set('Could not save the title. Please try again.');
       return;

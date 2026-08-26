@@ -29,7 +29,7 @@ export class CoursesService {
     }
   }
 
-  async saveCourse(courseId: number, changes: { description: string }): Promise<void> {
+  async saveCourse(courseId: number, changes: { title: string }): Promise<void> {
     await firstValueFrom(this.http.put<Course>(`/api/courses/${courseId}`, changes));
   }
 }

@@ -1,7 +1,7 @@
 export interface Course {
   id: number;
+  title: string;
   description: string;
-  longDescription: string;
   iconUrl: string;
   category: string;
   seqNo: number;

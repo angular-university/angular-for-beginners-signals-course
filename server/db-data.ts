@@ -5,8 +5,8 @@ export const COURSES: Record<number, Course> = {
   // ── Group 0: This course ───────────────────────────────────────────────────
   23: {
     id: 23,
-    description: 'Angular For Beginners (Signals Edition)',
-    longDescription: 'Learn Angular from scratch using the new Signals API — build real apps with the modern Angular paradigm',
+    title: 'Angular For Beginners (Signals Edition)',
+    description: 'Learn Angular from scratch using the new Signals API — build real apps with the modern Angular paradigm',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-for-beginners.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -19,8 +19,8 @@ export const COURSES: Record<number, Course> = {
 
   18: {
     id: 18,
-    description: 'Angular Router In Depth (Signals Edition)',
-    longDescription: 'Build large-scale Single Page Applications with the powerful Angular Router, using modern signals, standalone components and zoneless change detection.',
+    title: 'Angular Router In Depth (Signals Edition)',
+    description: 'Build large-scale Single Page Applications with the powerful Angular Router, using modern signals, standalone components and zoneless change detection.',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-router-in-depth.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -31,8 +31,8 @@ export const COURSES: Record<number, Course> = {
 
   19: {
     id: 19,
-    description: 'Angular Forms In Depth (Signals Edition)',
-    longDescription: 'Build complex enterprise data forms using Angular Signal Forms — the modern, reactive approach',
+    title: 'Angular Forms In Depth (Signals Edition)',
+    description: 'Build complex enterprise data forms using Angular Signal Forms — the modern, reactive approach',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-forms-in-depth.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -43,8 +43,8 @@ export const COURSES: Record<number, Course> = {
 
   20: {
     id: 20,
-    description: 'Angular AI In Depth (With Claude Code)',
-    longDescription: 'Build intelligent Angular applications powered by AI — integrate Claude, stream LLM responses, and ship production AI features',
+    title: 'Angular AI In Depth (With Claude Code)',
+    description: 'Build intelligent Angular applications powered by AI — integrate Claude, stream LLM responses, and ship production AI features',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-ai-in-depth.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -55,8 +55,8 @@ export const COURSES: Record<number, Course> = {
 
   21: {
     id: 21,
-    description: 'Angular Testing In Depth (Signals Edition)',
-    longDescription: 'Master unit testing, component testing and E2E testing of Angular Signal-based applications',
+    title: 'Angular Testing In Depth (Signals Edition)',
+    description: 'Master unit testing, component testing and E2E testing of Angular Signal-based applications',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-testing-In-depth.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -70,8 +70,8 @@ export const COURSES: Record<number, Course> = {
 
   24: {
     id: 24,
-    description: 'Angular In Depth (Signals Edition)',
-    longDescription: 'A deep dive into Angular internals — change detection, DI, routing, hydration and performance using Signals',
+    title: 'Angular In Depth (Signals Edition)',
+    description: 'A deep dive into Angular internals — change detection, DI, routing, hydration and performance using Signals',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-in-depth-with-signals.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -82,8 +82,8 @@ export const COURSES: Record<number, Course> = {
 
   22: {
     id: 22,
-    description: 'Modern Angular With Signals',
-    longDescription: 'Learn Angular Signals from scratch — signal(), computed(), effect(), zoneless apps, and the NgRx Signal Store',
+    title: 'Modern Angular With Signals',
+    description: 'Learn Angular Signals from scratch — signal(), computed(), effect(), zoneless apps, and the NgRx Signal Store',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-signals-course.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -96,8 +96,8 @@ export const COURSES: Record<number, Course> = {
 
   5: {
     id: 5,
-    description: 'Angular For Beginners',
-    longDescription: 'Establish a solid layer of Angular fundamentals — components, services, routing, forms and HTTP',
+    title: 'Angular For Beginners',
+    description: 'Establish a solid layer of Angular fundamentals — components, services, routing, forms and HTTP',
     iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular2-for-beginners-small-v2.png',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -108,8 +108,8 @@ export const COURSES: Record<number, Course> = {
 
   25: {
     id: 25,
-    description: 'Typescript: The Ultimate Bootcamp',
-    longDescription: 'Complete TypeScript from scratch — types, generics, advanced patterns, and building a Node REST API',
+    title: 'Typescript: The Ultimate Bootcamp',
+    description: 'Complete TypeScript from scratch — types, generics, advanced patterns, and building a Node REST API',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/typescript-bootcamp-2.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -120,8 +120,8 @@ export const COURSES: Record<number, Course> = {
 
   2: {
     id: 2,
-    description: 'Angular Core Deep Dive',
-    longDescription: 'A detailed walk-through of the most important part of Angular — the Core and Common modules',
+    title: 'Angular Core Deep Dive',
+    description: 'A detailed walk-through of the most important part of Angular — the Core and Common modules',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-core-deep-dive-new-2.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -132,8 +132,8 @@ export const COURSES: Record<number, Course> = {
 
   3: {
     id: 3,
-    description: 'RxJs In Practice Course',
-    longDescription: 'Understand the RxJs Observable pattern, learn the RxJs Operators via practical real-world examples',
+    title: 'RxJs In Practice Course',
+    description: 'Understand the RxJs Observable pattern, learn the RxJs Operators via practical real-world examples',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -144,8 +144,8 @@ export const COURSES: Record<number, Course> = {
 
   17: {
     id: 17,
-    description: 'Reactive Angular Course',
-    longDescription: 'Build Angular applications in Reactive style using plain RxJs — Patterns and Anti-Patterns',
+    title: 'Reactive Angular Course',
+    description: 'Build Angular applications in Reactive style using plain RxJs — Patterns and Anti-Patterns',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/reactive-angular-course.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -156,8 +156,8 @@ export const COURSES: Record<number, Course> = {
 
   4: {
     id: 4,
-    description: 'NgRx (with NgRx Data) - The Complete Guide',
-    longDescription: 'Learn the modern NgRx Ecosystem — Store, Effects, Entity, Router Store, NgRx Data, and DevTools',
+    title: 'NgRx (with NgRx Data) - The Complete Guide',
+    description: 'Learn the modern NgRx Ecosystem — Store, Effects, Entity, Router Store, NgRx Data, and DevTools',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/ngrx-v2.png',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -168,8 +168,8 @@ export const COURSES: Record<number, Course> = {
 
   12: {
     id: 12,
-    description: 'Angular Testing Course',
-    longDescription: 'In-depth guide to Unit Testing and E2E Testing of Angular Applications',
+    title: 'Angular Testing Course',
+    description: 'In-depth guide to Unit Testing and E2E Testing of Angular Applications',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-testing-small.png',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -180,8 +180,8 @@ export const COURSES: Record<number, Course> = {
 
   26: {
     id: 26,
-    description: 'Angular Material In Depth',
-    longDescription: 'Build beautiful Angular UIs with the official Material Design component library — theming, tables, dialogs and more',
+    title: 'Angular Material In Depth',
+    description: 'Build beautiful Angular UIs with the official Material Design component library — theming, tables, dialogs and more',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/angular-material-course-1.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -192,8 +192,8 @@ export const COURSES: Record<number, Course> = {
 
   27: {
     id: 27,
-    description: 'Angular SSR In Depth',
-    longDescription: 'Master Angular Server-Side Rendering — SSR, pre-rendering, hydration, transfer state and deployment',
+    title: 'Angular SSR In Depth',
+    description: 'Master Angular Server-Side Rendering — SSR, pre-rendering, hydration, transfer state and deployment',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/angular-universal-course.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -204,8 +204,8 @@ export const COURSES: Record<number, Course> = {
 
   28: {
     id: 28,
-    description: 'Firebase & AngularFire In Depth',
-    longDescription: 'Build real-time apps with Firebase and AngularFire — Firestore, Auth, Storage, Cloud Functions',
+    title: 'Firebase & AngularFire In Depth',
+    description: 'Build real-time apps with Firebase and AngularFire — Firestore, Auth, Storage, Cloud Functions',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/firebase-course-1.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -216,8 +216,8 @@ export const COURSES: Record<number, Course> = {
 
   14: {
     id: 14,
-    description: 'NestJs In Practice (with MongoDB)',
-    longDescription: 'Build a modern REST backend using Typescript, MongoDB and the familiar Angular-style API',
+    title: 'NestJs In Practice (with MongoDB)',
+    description: 'Build a modern REST backend using Typescript, MongoDB and the familiar Angular-style API',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/nestjs-v2.png',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -228,8 +228,8 @@ export const COURSES: Record<number, Course> = {
 
   16: {
     id: 16,
-    description: 'Stripe Payments In Practice',
-    longDescription: 'Build your own ecommerce store & membership website with Firebase, Stripe and Express',
+    title: 'Stripe Payments In Practice',
+    description: 'Build your own ecommerce store & membership website with Firebase, Stripe and Express',
     iconUrl: 'https://angular-university.s3-us-west-1.amazonaws.com/course-images/stripe-course.jpg',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -240,8 +240,8 @@ export const COURSES: Record<number, Course> = {
 
   1: {
     id: 1,
-    description: 'Serverless Angular with Firebase Course',
-    longDescription: 'Serverless Angular with Firestore, Firebase Storage & Hosting, Firebase Cloud Functions & AngularFire',
+    title: 'Serverless Angular with Firebase Course',
+    description: 'Serverless Angular with Firestore, Firebase Storage & Hosting, Firebase Cloud Functions & AngularFire',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/serverless-angular-small.png',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -252,8 +252,8 @@ export const COURSES: Record<number, Course> = {
 
   29: {
     id: 29,
-    description: 'NgRx In Depth',
-    longDescription: 'Deep dive into NgRx — advanced store patterns, effects, selectors, Signal Store and testing strategies',
+    title: 'NgRx In Depth',
+    description: 'Deep dive into NgRx — advanced store patterns, effects, selectors, Signal Store and testing strategies',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-ngrx-course.png',
     category: 'BEGINNER',
     lessonsCount: 11,
@@ -266,8 +266,8 @@ export const COURSES: Record<number, Course> = {
 
   6: {
     id: 6,
-    description: 'Angular Security Course - Web Security Fundamentals',
-    longDescription: 'Learn Web Security Fundamentals and defend an Angular / Node application from XSS, CSRF, JWT attacks and more',
+    title: 'Angular Security Course - Web Security Fundamentals',
+    description: 'Learn Web Security Fundamentals and defend an Angular / Node application from XSS, CSRF, JWT attacks and more',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png',
     category: 'ADVANCED',
     lessonsCount: 11,
@@ -278,8 +278,8 @@ export const COURSES: Record<number, Course> = {
 
   7: {
     id: 7,
-    description: 'Angular PWA - Progressive Web Apps Course',
-    longDescription: 'Learn Angular Progressive Web Applications — Service Workers, offline mode, push notifications and the Web App Manifest',
+    title: 'Angular PWA - Progressive Web Apps Course',
+    description: 'Learn Angular Progressive Web Applications — Service Workers, offline mode, push notifications and the Web App Manifest',
     iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-pwa-course.png',
     category: 'ADVANCED',
     lessonsCount: 11,
@@ -290,8 +290,8 @@ export const COURSES: Record<number, Course> = {
 
   8: {
     id: 8,
-    description: 'Angular Advanced Library Laboratory: Build Your Own Library',
-    longDescription: 'Learn Advanced Angular functionality used in Library Development — advanced components, directives, CDK, Npm publishing',
+    title: 'Angular Advanced Library Laboratory: Build Your Own Library',
+    description: 'Learn Advanced Angular functionality used in Library Development — advanced components, directives, CDK, Npm publishing',
     iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/advanced_angular-small-v3.png',
     category: 'ADVANCED',
     lessonsCount: 10,
