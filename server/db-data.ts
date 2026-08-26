@@ -11,7 +11,7 @@ export const COURSES: Record<number, Course> = {
     category: 'BEGINNER',
     lessonsCount: 11,
     seqNo: 0,
-    url: 'angular-beginners-signals-course',
+    url: 'angular-for-beginners-course',
     price: 50
   },
 

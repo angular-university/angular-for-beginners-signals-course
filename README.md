@@ -1,6 +1,6 @@
 ##  Angular For Beginners (Signals Edition)
 
-This repository contains the code of the [Angular For Beginners (Signals Edition)](https://angular-university.io/course/angular-beginners-signals-course) course.
+This repository contains the code of the [Angular For Beginners (Signals Edition)](https://angular-university.io/course/angular-for-beginners-course) course.
 
 This course repository is updated to Angular v22.
 
@@ -64,7 +64,7 @@ Here is a list of all the courses of the Angular University.
 
 ## Angular For Beginners (Signals Edition)
 
-[Angular For Beginners (Signals Edition)](https://angular-university.io/course/angular-beginners-signals-course) — Learn Angular from scratch the modern way: components, inputs and outputs, template control flow, signals, and fetching data from a backend.
+[Angular For Beginners (Signals Edition)](https://angular-university.io/course/angular-for-beginners-course) — Learn Angular from scratch the modern way: components, inputs and outputs, template control flow, signals, and fetching data from a backend.
 
 <img src="https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-for-beginners.jpg" width="400" alt="Angular For Beginners (Signals Edition)">
 
