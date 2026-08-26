@@ -11,6 +11,7 @@ import { TabData } from '../tabs/tabs.model';
 
 @Component({
   selector: 'courses',
+  imports: [CourseCard, CoursesCardList, Tabs],
   templateUrl: './courses.html',
   styleUrl: './courses.scss',
 })

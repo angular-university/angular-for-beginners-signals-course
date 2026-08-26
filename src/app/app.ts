@@ -4,7 +4,7 @@ import { Courses } from './courses/courses';
 
 @Component({
   selector: 'root',
-  imports: [Toolbar],
+  imports: [Toolbar, Courses],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

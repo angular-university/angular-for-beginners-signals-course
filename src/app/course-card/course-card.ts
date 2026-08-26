@@ -4,6 +4,7 @@ import { Course } from '../model/course';
 
 @Component({
   selector: 'course-card',
+  imports: [CurrencyPipe],
   templateUrl: './course-card.html',
   styleUrl: './course-card.scss',
 })

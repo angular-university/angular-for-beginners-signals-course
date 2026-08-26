@@ -5,6 +5,7 @@ import { TabData } from './tabs.model';
 
 @Component({
   selector: 'tabs',
+  imports: [UpperCasePipe],
   templateUrl: './tabs.html',
   styleUrl: './tabs.scss',
 })
