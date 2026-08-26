@@ -36,51 +36,9 @@
 </div>
 
 @if (courseInEdition(); as course) {
-  <div class="dialog-overlay">
-    <div class="edit-dialog">
-      <div class="edit-dialog-header">
-        <div class="section-icon">
-          <span class="material-icons">edit</span>
-        </div>
-        <h2 class="edit-dialog-title">Edit Course Title</h2>
-      </div>
-
-      <div class="edit-dialog-body">
-        <div class="form-group">
-          <label for="course-title">Title</label>
-          <input
-            id="course-title"
-            type="text"
-            class="form-control"
-            [value]="title()"
-            (input)="onTitleInput($event)"
-          />
-
-          @if (!canSave()) {
-            <span class="field-error">The title cannot be empty</span>
-          }
-
-          @if (saveError()) {
-            <span class="field-error">{{ saveError() }}</span>
-          }
-        </div>
-      </div>
-
-      <div class="edit-dialog-footer">
-        <button class="btn btn-ghost" (click)="closeDialog()">
-          <span class="material-icons">close</span>
-          Cancel
-        </button>
-
-        <button
-          class="btn btn-primary"
-          [disabled]="!canSave() || saving()"
-          (click)="saveTitle(course)"
-        >
-          <span class="material-icons">save</span>
-          {{ saving() ? 'Saving...' : 'Save' }}
-        </button>
-      </div>
-    </div>
-  </div>
+  <course-dialog
+    [course]="course"
+    (cancelled)="closeDialog()"
+    (saved)="onCourseSaved()"
+  />
 }
