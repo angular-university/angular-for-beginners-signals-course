@@ -12,7 +12,7 @@ export const COURSES: Record<number, Course> = {
     lessonsCount: 11,
     seqNo: 0,
     url: 'angular-for-beginners-course',
-    price: 50
+    price: 0
   },
 
   // ── Group 1: Flagship new courses ──────────────────────────────────────────
