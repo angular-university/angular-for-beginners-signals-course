@@ -21,15 +21,7 @@ export class CoursesService {
     return courses;
   }
 
-  async saveCourse(courseId: number, changes: Partial<Course>): Promise<Course> {
-    const updatedCourse = await firstValueFrom(
-      this.http.put<Course>(`/api/courses/${courseId}`, changes)
-    );
-
-    this.courses.update(courses =>
-      courses.map(course => (course.id === courseId ? { ...course, ...updatedCourse } : course))
-    );
-
-    return updatedCourse;
+  async saveCourse(courseId: number, changes: Partial<Course>): Promise<void> {
+    await firstValueFrom(this.http.put<Course>(`/api/courses/${courseId}`, changes));
   }
 }

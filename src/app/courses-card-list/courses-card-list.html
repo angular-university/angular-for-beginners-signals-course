@@ -9,15 +9,15 @@
       </div>
 
       <div class="card-body">
-        <h3 class="card-title">{{ course.description }}</h3>
-        <p class="card-description">{{ course.longDescription }}</p>
-      </div>
+        <div class="card-title-row">
+          <h3 class="card-title">{{ course.description }}</h3>
 
-      <div class="card-footer">
-        <button class="btn btn-primary btn-sm edit-btn" (click)="editCourse(course)">
-          <span class="material-icons">edit</span>
-          Edit Course
-        </button>
+          <button class="btn-icon edit-btn" title="Edit title" (click)="editCourse(course)">
+            <span class="material-icons">edit</span>
+          </button>
+        </div>
+
+        <p class="card-description">{{ course.longDescription }}</p>
       </div>
     </article>
   } @empty {
@@ -26,5 +26,43 @@
 </div>
 
 @if (courseInEdition(); as course) {
-  <courses-dialog [course]="course" (closed)="onDialogClosed($event)" />
+  <div class="dialog-overlay">
+    <div class="edit-dialog">
+      <div class="edit-dialog-header">
+        <div class="section-icon">
+          <span class="material-icons">edit</span>
+        </div>
+        <h2 class="edit-dialog-title">Edit Course Title</h2>
+      </div>
+
+      <div class="edit-dialog-body">
+        <div class="form-group">
+          <label for="course-title">Title</label>
+          <input
+            id="course-title"
+            type="text"
+            class="form-control"
+            [value]="title()"
+            (input)="onTitleInput($event)"
+          />
+
+          @if (!canSave()) {
+            <span class="field-error">The title cannot be empty</span>
+          }
+        </div>
+      </div>
+
+      <div class="edit-dialog-footer">
+        <button class="btn btn-ghost" (click)="closeDialog()">
+          <span class="material-icons">close</span>
+          Cancel
+        </button>
+
+        <button class="btn btn-primary" [disabled]="!canSave()" (click)="saveTitle(course)">
+          <span class="material-icons">save</span>
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
 }

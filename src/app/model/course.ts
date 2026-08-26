@@ -10,10 +10,4 @@ export interface Course {
   price: number;
 }
 
-export interface CourseData {
-  description: string;
-  longDescription: string;
-  category: string;
-}
-
 export type CourseCategory = 'beginner' | 'advanced';
