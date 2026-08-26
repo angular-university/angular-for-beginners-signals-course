@@ -7,7 +7,13 @@
     <h2 class="courses-panel-title">All Courses</h2>
   </div>
 
-  <tabs [tabs]="courseTabs" [(activeTab)]="activeTab" (tabChanged)="onTabChanged($event)" />
+  <tabs [tabs]="courseTabs" [activeTab]="activeTab()" (tabChanged)="onTabChanged($event)" />
+
+  @if (coursesService.loading()) {
+    <div class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+  }
 
   @if (activeTab() === 'beginner') {
     @if (beginnerCourses().length > 0) {

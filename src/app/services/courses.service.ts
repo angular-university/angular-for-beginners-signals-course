@@ -12,16 +12,28 @@ export class CoursesService {
   private courses = signal<Course[]>([]);
   readonly allCourses = this.courses.asReadonly();
 
-  async reloadAllCourses(): Promise<Course[]> {
-    const res = await firstValueFrom(this.http.get<{ payload: Course[] }>('/api/courses'));
+  // true while a request is in flight, so the screen can show a spinner
+  readonly loading = signal(false);
 
-    const courses = res.payload;
-    this.courses.set(courses);
+  async reloadAllCourses(): Promise<void> {
+    this.loading.set(true);
 
-    return courses;
+    try {
+      const res = await firstValueFrom(this.http.get<{ payload: Course[] }>('/api/courses'));
+
+      this.courses.set(res.payload);
+    } finally {
+      this.loading.set(false);
+    }
   }
 
   async saveCourse(courseId: number, changes: Partial<Course>): Promise<void> {
-    await firstValueFrom(this.http.put<Course>(`/api/courses/${courseId}`, changes));
+    this.loading.set(true);
+
+    try {
+      await firstValueFrom(this.http.put<Course>(`/api/courses/${courseId}`, changes));
+    } finally {
+      this.loading.set(false);
+    }
   }
 }

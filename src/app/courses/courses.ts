@@ -12,9 +12,9 @@ import { CourseCategory } from '../model/course';
   styleUrl: './courses.scss',
 })
 export class Courses implements OnInit {
-  private courseService = inject(CoursesService);
+  protected coursesService = inject(CoursesService);
 
-  allCourses = this.courseService.allCourses;
+  allCourses = this.coursesService.allCourses;
   activeTab = signal<CourseCategory>('beginner');
 
   courseTabs: TabData[] = [
@@ -39,7 +39,7 @@ export class Courses implements OnInit {
   }
 
   async reloadCourses() {
-    await this.courseService.reloadAllCourses();
+    await this.coursesService.reloadAllCourses();
   }
 
   onTabChanged(newTab: CourseCategory) {
