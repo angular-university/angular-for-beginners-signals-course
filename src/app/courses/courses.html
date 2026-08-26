@@ -7,23 +7,4 @@
     <h2 class="courses-panel-title">All Courses</h2>
   </div>
 
-  @if (coursesService.loading()) {
-    <div class="spinner-container">
-      <div class="spinner"></div>
-    </div>
-  } @else if (coursesService.error()) {
-    <div class="error-box">
-      <span class="material-icons">error_outline</span>
-      {{ coursesService.error() }}
-    </div>
-  } @else {
-    <tabs [tabs]="courseTabs" [activeTab]="activeTab()" (tabChanged)="onTabChanged($event)" />
-
-    @if (activeTab() === 'beginner') {
-      <courses-card-list (courseEdited)="reloadCourses()" [courses]="beginnerCourses()" />
-    } @else if (activeTab() === 'advanced') {
-      <courses-card-list (courseEdited)="reloadCourses()" [courses]="advancedCourses()" />
-    }
-  }
-
 </div>

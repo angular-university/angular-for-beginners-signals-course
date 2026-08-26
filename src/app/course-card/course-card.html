@@ -1,32 +1,29 @@
-<article class="course-card" [style.animation-delay.ms]="index() * 60">
+<article class="course-card">
   <div class="card-image-link">
-    <img class="card-image" [src]="course().iconUrl" [alt]="course().title" />
-    @switch (course().category) {
-      @case ('BEGINNER') {
-        <span class="card-category beginner">Beginner</span>
-      }
-      @case ('ADVANCED') {
-        <span class="card-category advanced">Advanced</span>
-      }
-      @default {
-        <span class="card-category">{{ course().category }}</span>
-      }
-    }
+    <img
+      class="card-image"
+      src="https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-for-beginners.jpg"
+      alt="Angular For Beginners (Signals Edition)"
+    />
+    <span class="card-category beginner">Beginner</span>
   </div>
 
   <div class="card-body">
     <div class="card-title-row">
       <h3 class="card-title">
-        <span class="card-number">{{ index() + 1 }}.</span> {{ course().title }}
+        <span class="card-number">1.</span> Angular For Beginners (Signals Edition)
       </h3>
 
-      <button class="btn-icon edit-btn" title="Edit title" (click)="editRequested.emit()">
+      <button class="btn-icon edit-btn" title="Edit title">
         <span class="material-icons">edit</span>
       </button>
     </div>
 
-    <p class="card-description">{{ course().description }}</p>
+    <p class="card-description">
+      Learn Angular from scratch using the new Signals API — build real apps with the modern
+      Angular paradigm
+    </p>
 
-    <div class="card-price">{{ course().price | currency }}</div>
+    <div class="card-price">Free</div>
   </div>
 </article>

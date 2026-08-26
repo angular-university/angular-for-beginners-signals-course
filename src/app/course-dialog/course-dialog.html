@@ -14,29 +14,20 @@
           id="course-title"
           type="text"
           class="form-control"
-          [value]="title()"
-          (input)="onTitleInput($event)"
+          value="Angular For Beginners (Signals Edition)"
         />
-
-        @if (!canSave()) {
-          <span class="field-error">The title cannot be empty</span>
-        }
-
-        @if (saveError()) {
-          <span class="field-error">{{ saveError() }}</span>
-        }
       </div>
     </div>
 
     <div class="edit-dialog-footer">
-      <button class="btn btn-ghost" (click)="cancel()">
+      <button class="btn btn-ghost">
         <span class="material-icons">close</span>
         Cancel
       </button>
 
-      <button class="btn btn-primary" [disabled]="!canSave() || saving()" (click)="save()">
+      <button class="btn btn-primary">
         <span class="material-icons">save</span>
-        {{ saving() ? 'Saving...' : 'Save' }}
+        Save
       </button>
     </div>
   </div>

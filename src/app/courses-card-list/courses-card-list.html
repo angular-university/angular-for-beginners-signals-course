@@ -1,15 +1,1 @@
-<div class="courses-grid">
-  @for (course of courses(); track course.id) {
-    <course-card [course]="course" [index]="$index" (editRequested)="editCourse(course)" />
-  } @empty {
-    <div class="no-courses">No courses found.</div>
-  }
-</div>
-
-@if (courseInEdition(); as course) {
-  <course-dialog
-    [course]="course"
-    (cancelled)="closeDialog()"
-    (saved)="onCourseSaved()"
-  />
-}
+<div class="courses-grid"></div>
