@@ -32,12 +32,6 @@ export class CoursesService {
   }
 
   async saveCourse(courseId: number, changes: { description: string }): Promise<void> {
-    this.loading.set(true);
-
-    try {
-      await firstValueFrom(this.http.put<Course>(`/api/courses/${courseId}`, changes));
-    } finally {
-      this.loading.set(false);
-    }
+    await firstValueFrom(this.http.put<Course>(`/api/courses/${courseId}`, changes));
   }
 }

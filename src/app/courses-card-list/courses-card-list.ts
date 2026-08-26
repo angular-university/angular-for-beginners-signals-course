@@ -24,6 +24,9 @@ export class CoursesCardList {
   // set when saving fails, so the dialog can show a message
   saveError = signal('');
 
+  // true while the title is being saved
+  saving = signal(false);
+
   readonly maxTitleLength = 70;
 
   canSave = computed(() => this.title().trim().length > 0);
@@ -51,12 +54,15 @@ export class CoursesCardList {
 
   async saveTitle(course: Course) {
     this.saveError.set('');
+    this.saving.set(true);
 
     try {
       await this.coursesService.saveCourse(course.id, { description: this.title().trim() });
     } catch {
       this.saveError.set('Could not save the title. Please try again.');
       return;
+    } finally {
+      this.saving.set(false);
     }
 
     this.courseInEdition.set(null);

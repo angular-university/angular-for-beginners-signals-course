@@ -77,9 +77,13 @@
           Cancel
         </button>
 
-        <button class="btn btn-primary" [disabled]="!canSave()" (click)="saveTitle(course)">
+        <button
+          class="btn btn-primary"
+          [disabled]="!canSave() || saving()"
+          (click)="saveTitle(course)"
+        >
           <span class="material-icons">save</span>
-          Save
+          {{ saving() ? 'Saving...' : 'Save' }}
         </button>
       </div>
     </div>
