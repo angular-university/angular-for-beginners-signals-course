@@ -6,5 +6,5 @@ export function getCourses(req: Request, res: Response) {
 
   req.log.info(`Returning ${courses.length} courses`);
 
-  res.status(200).json({ payload: courses });
+  res.status(200).json(courses);
 }

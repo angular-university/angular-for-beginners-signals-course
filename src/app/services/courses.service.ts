@@ -13,19 +13,25 @@ export class CoursesService {
   // true while a request is in flight, so the screen can show a spinner
   readonly loading = signal(false);
 
+  // set when a request fails, so the screen can show a message
+  readonly error = signal('');
+
   async reloadAllCourses(): Promise<void> {
     this.loading.set(true);
+    this.error.set('');
 
     try {
-      const res = await firstValueFrom(this.http.get<{ payload: Course[] }>('/api/courses'));
+      const courses = await firstValueFrom(this.http.get<Course[]>('/api/courses'));
 
-      this.courses.set(res.payload);
+      this.courses.set(courses);
+    } catch {
+      this.error.set('Could not load the courses. Is the server running?');
     } finally {
       this.loading.set(false);
     }
   }
 
-  async saveCourse(courseId: number, changes: Partial<Course>): Promise<void> {
+  async saveCourse(courseId: number, changes: { description: string }): Promise<void> {
     this.loading.set(true);
 
     try {

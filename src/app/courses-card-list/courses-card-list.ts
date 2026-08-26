@@ -1,9 +1,11 @@
 import { Component, computed, inject, input, output, signal } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 import { Course } from '../model/course';
 import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'courses-card-list',
+  imports: [CurrencyPipe],
   templateUrl: './courses-card-list.html',
   styleUrl: './courses-card-list.scss',
 })
@@ -19,6 +21,9 @@ export class CoursesCardList {
   // the title the user is typing in the dialog
   title = signal('');
 
+  // set when saving fails, so the dialog can show a message
+  saveError = signal('');
+
   readonly maxTitleLength = 70;
 
   canSave = computed(() => this.title().trim().length > 0);
@@ -30,6 +35,7 @@ export class CoursesCardList {
 
   editCourse(course: Course) {
     this.title.set(course.description);
+    this.saveError.set('');
     this.courseInEdition.set(course);
   }
 
@@ -44,7 +50,14 @@ export class CoursesCardList {
   }
 
   async saveTitle(course: Course) {
-    await this.coursesService.saveCourse(course.id, { description: this.title().trim() });
+    this.saveError.set('');
+
+    try {
+      await this.coursesService.saveCourse(course.id, { description: this.title().trim() });
+    } catch {
+      this.saveError.set('Could not save the title. Please try again.');
+      return;
+    }
 
     this.courseInEdition.set(null);
     this.courseEdited.emit();

@@ -192,3 +192,16 @@
   color: var(--color-text-muted);
   font-variant-numeric: tabular-nums;
 }
+
+.card-number {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.card-price {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}

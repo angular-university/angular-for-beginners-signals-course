@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NgLogo } from '../shared/ng-logo/ng-logo';
+import { AngularLogo } from '../shared/angular-logo/angular-logo';
 
 @Component({
   selector: 'toolbar',
-  imports: [NgLogo],
+  imports: [AngularLogo],
   templateUrl: './toolbar.html',
   styleUrl: './toolbar.scss',
 })

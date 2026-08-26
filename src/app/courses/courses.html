@@ -5,29 +5,29 @@
       <span class="material-icons">grid_view</span>
     </div>
     <h2 class="courses-panel-title">All Courses</h2>
-  </div>
 
-  <tabs [tabs]="courseTabs" [activeTab]="activeTab()" (tabChanged)="onTabChanged($event)" />
+    <button class="btn btn-ghost sort-btn" (click)="toggleSortOrder()">
+      <span class="material-icons">swap_vert</span>
+      {{ sortAscending() ? 'Oldest first' : 'Newest first' }}
+    </button>
+  </div>
 
   @if (coursesService.loading()) {
     <div class="spinner-container">
       <div class="spinner"></div>
     </div>
-  }
+  } @else if (coursesService.error()) {
+    <div class="error-box">
+      <span class="material-icons">error_outline</span>
+      {{ coursesService.error() }}
+    </div>
+  } @else {
+    <tabs [tabs]="courseTabs" [activeTab]="activeTab()" (tabChanged)="onTabChanged($event)" />
 
-  @if (activeTab() === 'beginner') {
-    @if (beginnerCourses().length > 0) {
+    @if (activeTab() === 'beginner') {
       <courses-card-list (courseEdited)="reloadCourses()" [courses]="beginnerCourses()" />
-    } @else {
-      <p class="empty-msg">No beginner courses available.</p>
-    }
-  }
-
-  @if (activeTab() === 'advanced') {
-    @if (advancedCourses().length > 0) {
+    } @else if (activeTab() === 'advanced') {
       <courses-card-list (courseEdited)="reloadCourses()" [courses]="advancedCourses()" />
-    } @else {
-      <p class="empty-msg">No advanced courses available.</p>
     }
   }
 
