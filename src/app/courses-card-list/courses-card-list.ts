@@ -27,14 +27,7 @@ export class CoursesCardList {
   // true while the title is being saved
   saving = signal(false);
 
-  readonly maxTitleLength = 70;
-
   canSave = computed(() => this.title().trim().length > 0);
-
-  // how full the title is, as a percentage of the maximum length
-  titleLengthPercent = computed(() =>
-    Math.min(100, (this.title().length / this.maxTitleLength) * 100)
-  );
 
   editCourse(course: Course) {
     this.title.set(course.description);

@@ -56,16 +56,11 @@
             (input)="onTitleInput($event)"
           />
 
-          <div class="title-meter">
-            <div class="title-meter-track">
-              <div class="title-meter-fill" [style.width.%]="titleLengthPercent()"></div>
-            </div>
-            <span class="title-meter-count">{{ title().length }} / {{ maxTitleLength }}</span>
-          </div>
-
           @if (!canSave()) {
             <span class="field-error">The title cannot be empty</span>
-          } @else if (saveError()) {
+          }
+
+          @if (saveError()) {
             <span class="field-error">{{ saveError() }}</span>
           }
         </div>
