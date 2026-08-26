@@ -10,10 +10,8 @@ export class CoursesService {
   private courses = signal<Course[]>([]);
   readonly allCourses = this.courses.asReadonly();
 
-  // true while a request is in flight, so the screen can show a spinner
   readonly loading = signal(false);
 
-  // set when a request fails, so the screen can show a message
   readonly error = signal('');
 
   async reloadAllCourses(): Promise<void> {
