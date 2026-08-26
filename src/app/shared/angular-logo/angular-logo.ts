@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'angular-logo',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './angular-logo.scss',
 })
 export class AngularLogo {
-
+  size = input(28);
 }

@@ -8,7 +8,7 @@ This course repository is updated to Angular v22.
 
 # Installation pre-requisites
 
-Please install Node 24 Long Term Support Edition (LTE).
+Please install Node 24 Long Term Support Edition (LTS).
 
 # Installing the Angular CLI
 
@@ -54,9 +54,11 @@ The application is visible at port 4200: [http://localhost:4200](http://localhos
 
 # Important
 
-This repository has multiple branches, have a look at the beginning of each section to see the name of the branch.
+This repository has a single branch, which is the starting point of the course. You
+build the application from there as you follow along with the lessons.
 
-It's also possible to download a ZIP file for a given branch,  using the branch dropdown on this page on the top left, and then selecting the Clone or Download / Download as ZIP button.
+It's also possible to download the repository as a ZIP file, using the Code button
+on this page and then selecting Download ZIP.
 
 # Angular University Courses
 
