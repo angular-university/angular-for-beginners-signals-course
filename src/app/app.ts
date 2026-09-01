@@ -24,4 +24,8 @@ export class App {
     price: 0,
   };
 
+  onEditStarted(message:string) {
+    console.log(`onEditStarted called with message: ${message}`);
+  }
+
 }

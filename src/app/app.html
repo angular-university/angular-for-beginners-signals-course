@@ -2,6 +2,8 @@
 
 <main class="app-main">
 
-  <course-card class="card" [course]="courseData" />
+  <course-card class="card"
+               [course]="courseData"
+                (editStarted)="onEditStarted($event)" />
 
 </main>
