@@ -1,4 +1,4 @@
-<article class="course-card">
+<article class="course-card" (click)="onCardClick()">
   <div class="card-image-link">
     <img
       class="card-image"
@@ -14,7 +14,8 @@
         <span class="card-number">1.</span> {{ course.title }}
       </h3>
 
-      <button class="btn-icon edit-btn" title="Edit title">
+      <button class="btn-icon edit-btn" title="Edit title"
+              (click)="onEditClick($event)">
         <span class="material-icons">edit</span>
       </button>
     </div>
