@@ -2,16 +2,16 @@
   <div class="card-image-link">
     <img
       class="card-image"
-      [src]="course.iconUrl"
-      [alt]="course.title"
+      [src]="course().iconUrl"
+      [alt]="course().title"
     />
-    <span class="card-category beginner">{{ course.category }}</span>
+    <span class="card-category beginner">{{ course().category }}</span>
   </div>
 
   <div class="card-body">
     <div class="card-title-row">
       <h3 class="card-title">
-        <span class="card-number">1.</span> {{ course.title }}
+        <span class="card-number">1.</span> {{ course().title }}
       </h3>
 
       <button class="btn-icon edit-btn" title="Edit title"
@@ -21,7 +21,7 @@
     </div>
 
     <p class="card-description">
-      {{course.description}}
+      {{course().description}}
     </p>
 
     <div class="card-price">Free</div>
