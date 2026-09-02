@@ -24,7 +24,7 @@ export const MOCK_COURSES: Course[] = [
     title: 'Angular Forms In Depth (Signals Edition)',
     description: 'Build complex enterprise data forms using Angular Signal Forms — the modern, reactive approach',
     iconUrl: 'https://d3vigmphadbn9b.cloudfront.net/course-images/large-images/angular-forms-in-depth.jpg',
-    category: 'BEGINNER',
+    category: 'INTERMEDIATE',
     seqNo: 2,
     price: 50,
   },

@@ -5,7 +5,15 @@
       [src]="course().iconUrl"
       [alt]="course().title"
     />
-    <span class="card-category beginner">{{ course().category }}</span>
+    @if (course().category === 'BEGINNER') {
+      <span class="card-category beginner">Beginners only</span>
+    }
+    @else if (course().category === 'ADVANCED') {
+      <span class="card-category advanced">Expert-level</span>
+    }
+    @else {
+      <span class="card-category">{{ course().category }}</span>
+    }
   </div>
 
   <div class="card-body">
@@ -24,6 +32,10 @@
       {{course().description}}
     </p>
 
-    <div class="card-price">Free</div>
+    @if (course().price > 0) {
+      <div class="card-price">{{ course().price }}</div>
+    } @else {
+      <div class="card-price">Free</div>
+    }
   </div>
 </article>

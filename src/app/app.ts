@@ -13,7 +13,7 @@ import {MOCK_COURSES} from './shared/mock-courses';
 })
 export class App {
 
-  courses: Course[] = [];
+  courses = MOCK_COURSES;
 
   onEditStarted(message:string) {
     console.log(`onEditStarted called with message: ${message}`);
