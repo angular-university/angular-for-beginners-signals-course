@@ -5,14 +5,16 @@
       [src]="course().iconUrl"
       [alt]="course().title"
     />
-    @if (course().category === 'BEGINNER') {
-      <span class="card-category beginner">Beginners only</span>
-    }
-    @else if (course().category === 'ADVANCED') {
-      <span class="card-category advanced">Expert-level</span>
-    }
-    @else {
-      <span class="card-category">{{ course().category }}</span>
+    @switch (course().category) {
+      @case ('BEGINNER') {
+        <span class="card-category beginner">Beginners only</span>
+      }
+      @case ('ADVANCED') {
+        <span class="card-category advanced">Expert-level</span>
+      }
+      @default {
+        <span class="card-category">{{ course().category }}</span>
+      }
     }
   </div>
 
