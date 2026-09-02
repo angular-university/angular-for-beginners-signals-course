@@ -4,6 +4,10 @@
 
   <div class="page-container">
 
+    <tabs
+      [tabs]="courseTabs"
+      (tabChanged)="onTabChanged($event)" />
+
     <div class="courses-grid">
       @for (course of courses; track course.id) {
         <course-card
