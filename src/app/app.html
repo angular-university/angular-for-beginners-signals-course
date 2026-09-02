@@ -6,7 +6,9 @@
 
     <tabs
       [tabs]="courseTabs"
-      (tabChanged)="onTabChanged($event)" />
+      [activeTab]="activeTab"
+      (tabChanged)="onTabChanged($event)"
+    />
 
     <div class="courses-grid">
       @for (course of courses; track course.id) {

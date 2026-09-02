@@ -22,7 +22,10 @@ export class App {
     { label: 'Advanced', value: 'advanced' },
   ];
 
+  activeTab: CourseCategory = 'beginner';
+
   onTabChanged(newTab: CourseCategory) {
+    this.activeTab = newTab;
     console.log(`active tab: ${newTab}`);
   }
 
