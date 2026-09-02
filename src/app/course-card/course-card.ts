@@ -12,6 +12,8 @@ export class CourseCard {
 
   course = input.required<Course>();
 
+  index = input.required<number>();
+
   editStarted = output<string>();
 
   onCardClick() {
