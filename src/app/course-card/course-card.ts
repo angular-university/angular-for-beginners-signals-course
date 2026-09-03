@@ -1,10 +1,10 @@
 import { Component, input, output } from '@angular/core';
-import { CurrencyPipe } from '@angular/common';
+import {CurrencyPipe, TitleCasePipe, UpperCasePipe} from '@angular/common';
 import { Course } from '../model/course';
 
 @Component({
   selector: 'course-card',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, TitleCasePipe, UpperCasePipe],
   templateUrl: './course-card.html',
   styleUrl: './course-card.scss',
 })

@@ -18,7 +18,7 @@
         <span class="card-category advanced">Expert-level</span>
       }
       @default {
-        <span class="card-category">{{ course().category }}</span>
+        <span class="card-category">{{ course().category | titlecase }}</span>
       }
     }
   </div>
@@ -26,7 +26,7 @@
   <div class="card-body">
     <div class="card-title-row">
       <h3 class="card-title">
-        <span class="card-number">{{ index() + 1 }}.</span> {{ course().title }}
+        <span class="card-number">{{ index() + 1 }}.</span> {{ course().title | uppercase }}
       </h3>
 
       <button class="btn-icon edit-btn" title="Edit title"
@@ -40,7 +40,7 @@
     </p>
 
     @if (course().price > 0) {
-      <div class="card-price">{{ course().price }}</div>
+      <div class="card-price">{{ course().price | currency:'EUR':'symbol':'1.0-0' }}</div>
     } @else {
       <div class="card-price">Free</div>
     }
