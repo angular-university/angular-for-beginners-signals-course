@@ -2,8 +2,7 @@
   class="course-card"
   [class.is-free]="course().price === 0"
   [style.animation-delay.ms]="index() * 500"
-  (click)="onCardClick()"
->
+  (click)="onCardClick()">
   <div class="card-image-link">
     <img
       class="card-image"
