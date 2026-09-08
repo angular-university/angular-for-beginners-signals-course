@@ -1,3 +1,8 @@
+export enum CourseCategory {
+  BEGINNER = 'BEGINNER',
+  ADVANCED = 'ADVANCED',
+}
+
 export interface Course {
   id: number;
   title: string;
@@ -7,5 +12,3 @@ export interface Course {
   seqNo: number;
   price: number;
 }
-
-export type CourseCategory = 'BEGINNER' | 'ADVANCED';

@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Toolbar } from './toolbar/toolbar';
 import { Courses } from './courses/courses';
 import {CourseCard} from './course-card/course-card';
@@ -15,14 +15,16 @@ import {TabData} from './tabs/tabs.model';
 })
 export class App {
 
-  courses = MOCK_COURSES;
+  activeTab = signal(CourseCategory.BEGINNER);
+
+  courses = computed(() =>
+    MOCK_COURSES.filter(course => course.category === this.activeTab())
+  );
 
   courseTabs: TabData[] = [
-    { label: 'Beginner', value: 'beginner' },
-    { label: 'Advanced', value: 'advanced' },
+    { label: 'Beginner', value: CourseCategory.BEGINNER },
+    { label: 'Advanced', value: CourseCategory.ADVANCED },
   ];
-
-  activeTab = signal<CourseCategory>('beginner');
 
   onTabChanged(newTab: CourseCategory) {
     this.activeTab.set(newTab);

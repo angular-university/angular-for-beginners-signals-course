@@ -1,6 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import {CurrencyPipe, TitleCasePipe, UpperCasePipe} from '@angular/common';
-import { Course } from '../model/course';
+import { Course, CourseCategory } from '../model/course';
 
 @Component({
   selector: 'course-card',
@@ -9,6 +9,8 @@ import { Course } from '../model/course';
   styleUrl: './course-card.scss',
 })
 export class CourseCard {
+
+  readonly categories = CourseCategory;
 
   course = input.required<Course>();
 

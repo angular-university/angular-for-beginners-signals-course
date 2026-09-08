@@ -10,10 +10,10 @@
       [alt]="course().title"
     />
     @switch (course().category) {
-      @case ('BEGINNER') {
+      @case (categories.BEGINNER) {
         <span class="card-category beginner">Beginners only</span>
       }
-      @case ('ADVANCED') {
+      @case (categories.ADVANCED) {
         <span class="card-category advanced">Expert-level</span>
       }
       @default {

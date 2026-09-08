@@ -11,7 +11,7 @@
     />
 
     <div class="courses-grid">
-      @for (course of courses; track course.id) {
+      @for (course of courses(); track course.id) {
         <course-card
           class="card"
           [course]="course"
