@@ -14,18 +14,23 @@
           id="course-title"
           type="text"
           class="form-control"
-          value="Angular For Beginners (Signals Edition)"
+          [value]="title()"
+          (input)="onTitleInput($event)"
         />
+
+        @if (saveError()) {
+          <div class="field-error">{{ saveError() }}</div>
+        }
       </div>
     </div>
 
     <div class="edit-dialog-footer">
-      <button class="btn btn-ghost">
+      <button class="btn btn-ghost" (click)="cancelled.emit()">
         <span class="material-icons">close</span>
         Cancel
       </button>
 
-      <button class="btn btn-primary">
+      <button class="btn btn-primary" [disabled]="!canSave()" (click)="save()">
         <span class="material-icons">save</span>
         Save
       </button>
