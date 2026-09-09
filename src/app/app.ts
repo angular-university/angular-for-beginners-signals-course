@@ -6,6 +6,7 @@ import {CourseCard} from './course-card/course-card';
 import {Course, CourseCategory} from './model/course';
 import {Tabs} from './tabs/tabs';
 import {TabData} from './tabs/tabs.model';
+import {MOCK_COURSES} from './shared/mock-courses';
 
 @Component({
   selector: 'root',
