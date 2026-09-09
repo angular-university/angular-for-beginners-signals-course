@@ -24,7 +24,6 @@ export class CoursesService {
 
   async saveCourse(courseId: number, changes: { title: string }) {
     await firstValueFrom(this.http.put<Course>(`/api/courses/${courseId}`, changes));
-
     this.reloadAllCourses();
   }
 
