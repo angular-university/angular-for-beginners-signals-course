@@ -10,20 +10,20 @@
       (tabChanged)="onTabChanged($event)"
     />
 
-    @if (coursesResource.isLoading()) {
+    @if (coursesService.loading()) {
 
       <div class="courses-loading">
         <div class="spinner"></div>
         <p>Loading courses...</p>
       </div>
 
-    } @else if (coursesResource.error()) {
+    } @else if (coursesService.error()) {
 
       <div class="courses-error">
         <span class="material-icons">error_outline</span>
         <p class="error-message">Could not load the courses.</p>
-        <p class="error-detail">{{ coursesResource.error()?.message }}</p>
-        <button class="btn btn-primary" (click)="coursesResource.reload()">
+        <p class="error-detail">{{ coursesService.error()?.message }}</p>
+        <button class="btn btn-primary" (click)="coursesService.reloadAllCourses()">
           Try again
         </button>
       </div>

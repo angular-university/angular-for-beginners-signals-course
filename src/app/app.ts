@@ -1,29 +1,26 @@
-import { Component, computed, signal } from '@angular/core';
-import { httpResource } from '@angular/common/http';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Toolbar } from './toolbar/toolbar';
 import { Courses } from './courses/courses';
-import {CourseCard} from './course-card/course-card';
-import {Course, CourseCategory} from './model/course';
-import {Tabs} from './tabs/tabs';
-import {TabData} from './tabs/tabs.model';
-import {MOCK_COURSES} from './shared/mock-courses';
+import { CourseCard } from './course-card/course-card';
+import { CourseCategory } from './model/course';
+import { Tabs } from './tabs/tabs';
+import { TabData } from './tabs/tabs.model';
+import { CoursesService } from './services/courses.service';
 
 @Component({
   selector: 'root',
-  imports: [Toolbar, Courses,CourseCard, Tabs],
+  imports: [Toolbar, Courses, CourseCard, Tabs],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
 
+  protected coursesService = inject(CoursesService);
+
   activeTab = signal(CourseCategory.BEGINNER);
 
-  coursesResource = httpResource<Course[]>(() => '/api/courses', {
-    defaultValue: [],
-  });
-
   courses = computed(() =>
-    this.coursesResource.value().filter(course => course.category === this.activeTab())
+    this.coursesService.allCourses().filter(course => course.category === this.activeTab())
   );
 
   courseTabs: TabData[] = [
@@ -36,7 +33,7 @@ export class App {
     console.log(`active tab: ${newTab}`);
   }
 
-  onEditStarted(message:string) {
+  onEditStarted(message: string) {
     console.log(`onEditStarted called with message: ${message}`);
   }
 
