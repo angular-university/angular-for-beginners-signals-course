@@ -1,9 +1,9 @@
 import { Component, computed, signal } from '@angular/core';
+import { httpResource } from '@angular/common/http';
 import { Toolbar } from './toolbar/toolbar';
 import { Courses } from './courses/courses';
 import {CourseCard} from './course-card/course-card';
 import {Course, CourseCategory} from './model/course';
-import {MOCK_COURSES} from './shared/mock-courses';
 import {Tabs} from './tabs/tabs';
 import {TabData} from './tabs/tabs.model';
 
@@ -17,10 +17,13 @@ export class App {
 
   activeTab = signal(CourseCategory.BEGINNER);
 
-  courses = computed(() => {
-    const category = this.activeTab();
-    return MOCK_COURSES.filter(course => course.category == category);
+  coursesResource = httpResource<Course[]>(() => '/api/courses', {
+    defaultValue: [],
   });
+
+  courses = computed(() =>
+    this.coursesResource.value().filter(course => course.category === this.activeTab())
+  );
 
   courseTabs: TabData[] = [
     { label: 'Beginner', value: CourseCategory.BEGINNER },
