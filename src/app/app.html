@@ -47,12 +47,4 @@
 
   </div>
 
-  @if (courseInEdition(); as course) {
-    <course-dialog
-      [course]="course"
-      (cancelled)="courseInEdition.set(null)"
-      (saved)="onCourseSaved()"
-    />
-  }
-
 </main>

@@ -2,7 +2,6 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { Toolbar } from './toolbar/toolbar';
 import { Courses } from './courses/courses';
 import { CourseCard } from './course-card/course-card';
-import { CourseDialog } from './course-dialog/course-dialog';
 import { Course, CourseCategory } from './model/course';
 import { Tabs } from './tabs/tabs';
 import { TabData } from './tabs/tabs.model';
@@ -10,7 +9,7 @@ import { CoursesService } from './services/courses.service';
 
 @Component({
   selector: 'root',
-  imports: [Toolbar, Courses, CourseCard, Tabs, CourseDialog],
+  imports: [Toolbar, Courses, CourseCard, Tabs],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -19,8 +18,6 @@ export class App {
   protected coursesService = inject(CoursesService);
 
   activeTab = signal(CourseCategory.BEGINNER);
-
-  courseInEdition = signal<Course | null>(null);
 
   courses = computed(() =>
     this.coursesService.allCourses().filter(course => course.category === this.activeTab())
@@ -36,12 +33,14 @@ export class App {
     console.log(`active tab: ${newTab}`);
   }
 
-  onEditStarted(course: Course) {
-    this.courseInEdition.set(course);
-  }
+  async onEditStarted(course: Course) {
+    const newTitle = prompt('New course title:', course.title);
 
-  onCourseSaved() {
-    this.courseInEdition.set(null);
+    if (!newTitle?.trim()) {
+      return;
+    }
+
+    await this.coursesService.saveCourse(course.id, { title: newTitle.trim() });
   }
 
 }

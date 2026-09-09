@@ -9,6 +9,7 @@ import { CoursesService } from '../services/courses.service';
 })
 export class CourseDialog implements OnInit {
 
+
   course = input.required<Course>();
 
   cancelled = output();
@@ -35,6 +36,8 @@ export class CourseDialog implements OnInit {
     this.saveError.set('');
 
     try {
+
+
       this.saved.emit();
     } catch {
       this.saveError.set('Could not save the course. Please try again.');
