@@ -11,14 +11,4 @@ import { TabData } from './tabs.model';
 })
 export class Tabs {
 
-  tabs = input.required<TabData[]>();
-
-  activeTab = input.required<CourseCategory>();
-
-  tabChanged = output<CourseCategory>();
-
-  selectTab(value: CourseCategory) {
-    this.tabChanged.emit(value);
-  }
-
 }
